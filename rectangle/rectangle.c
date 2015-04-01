@@ -1,13 +1,15 @@
 #include "rectangle.h"
 #include <math.h>
 #include <stdlib.h>
+#include <time.h>
 
 Rectangle rectangleCreate(){
   Rectangle r= (Rectangle) malloc(sizeof(Rectangle));
-  r->radius =1;
-  r->angle = 1;
-  r->speed = 1;
-  r->dimension = 1;
+  srand(time(NULL));
+  r->radius =rand()%600;
+  r->angle = rand()%(7);
+  r->speed = 8;
+  r->dimension = rand()%2;
   return r;
 }
 int main(){
