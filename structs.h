@@ -1,5 +1,5 @@
-#ifndef DEF_STRUCTS
-#define DEF_STRUCTS
+#ifndef DEF_STRUCTS_H
+#define DEF_STRUCTS_H
  
 #include "paramdef.h"
  

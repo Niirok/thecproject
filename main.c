@@ -1,39 +1,57 @@
-#include "prototypes.h"
- 
- 
-//Déclaration des variables / structures utilisées par le jeu 
+#include <SDL2/SDL.h>
+#include <stdbool.h>
+#include "paramdef.h"
 
-Input input; // prise en compte du duo clavier souris
- 
- 
-int main(int argc, char *argv[])
+/* Window resolution */
+#define WINDOW_WIDTH 500
+#define WINDOW_HEIGHT 500
+
+/* Window title */
+#define WINDOW_TITLE "SDL2 Test"
+
+/* The window */
+SDL_Window* window = NULL;
+
+/* The window surface */
+SDL_Surface* screen = NULL;
+
+/* The event structure */
+SDL_Event event;
+
+/* The game loop flag */
+_Bool running = true;
+
+/* to put the loaded image */
+SDL_Surface* image = NULL;
+
+int main( int argc, char* args[] )
 {
-    unsigned int frameLimit = SDL_GetTicks() + 16;
-    int ongoing;
- 
-    // Initialisation de la SDL 
-    init("ColorPoc");
- 
-    // Appelle la fonction cleanup à la fin du programme 
-    atexit(cleanup);
- 
-    ongoing = 1;
- 
-    // Boucle infinie, principale, du jeu 
-    while (ongoing == 1)
-    {
-        //Gestion des inputs clavier
-        gestionInputs(&input);
- 
-        //On dessine tout
-        drawGame();
- 
-        // Gestion des 60 fps (1000ms/60 = 16.6 -> 16 
-        delay(frameLimit);
-        frameLimit = SDL_GetTicks() + 16;
+  if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
+    printf( "SDL2 could not initialize! SDL2_Error: %s\n", SDL_GetError() );
+  } else {
+    window = SDL_CreateWindow(
+      WINDOW_TITLE,
+      SDL_WINDOWPOS_CENTERED,
+      SDL_WINDOWPOS_CENTERED,
+      SCREEN_WIDTH,
+      SCREEN_HEIGHT,
+      SDL_WINDOW_SHOWN);
+
+    screen = SDL_GetWindowSurface( window );
+    image = SDL_LoadBMP( "sdl.bmp" );
+    while( running ) {
+      while( SDL_PollEvent( &event ) != 0 ) {
+        if( event.type == SDL_QUIT ) {
+          running = false;
+        }
+      }
+
+      SDL_BlitSurface( image, NULL, screen, NULL );
+      SDL_UpdateWindowSurface( window );
     }
- 
-    // On quitte
-    exit(0);
- 
+  }
+  SDL_FreeSurface( image );
+  SDL_DestroyWindow( window );
+  SDL_Quit();
+  return 0;
 }
