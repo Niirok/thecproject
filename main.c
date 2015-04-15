@@ -1,31 +1,24 @@
 #include <SDL2/SDL.h>
 #include <stdbool.h>
 #include "paramdef.h"
+#include "draw.c"
+#include "input.c"
 
-/* Window resolution */
-#define WINDOW_WIDTH 500
-#define WINDOW_HEIGHT 500
+Input input; // prise en compte des touches claviers
 
-/* Window title */
-#define WINDOW_TITLE "SDL2 Test"
+SDL_Window* window = NULL;	// The window 
 
-/* The window */
-SDL_Window* window = NULL;
+SDL_Surface* screen = NULL;	//The window surface 
 
-/* The window surface */
-SDL_Surface* screen = NULL;
+SDL_Event event; //The event structure 
 
-/* The event structure */
-SDL_Event event;
+_Bool running = true;	//Flag booleen de boucle de jeu
 
-/* The game loop flag */
-_Bool running = true;
-
-/* to put the loaded image */
-SDL_Surface* image = NULL;
+SDL_Surface* image = NULL;	//to put the loaded image 
 
 int main( int argc, char* args[] )
 {
+	unsigned int frameLimit = SDL_GetTicks() + 16;
   if( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
     printf( "SDL2 could not initialize! SDL2_Error: %s\n", SDL_GetError() );
   } else {
@@ -44,6 +37,8 @@ int main( int argc, char* args[] )
         if( event.type == SDL_QUIT ) {
           running = false;
         }
+			delay(frameLimit);
+      frameLimit = SDL_GetTicks() + 16;
       }
 
       SDL_BlitSurface( image, NULL, screen, NULL );

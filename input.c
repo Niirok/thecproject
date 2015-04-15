@@ -1,13 +1,4 @@
-#include "prototypes.h"
- 
- 
-void gestionInputs(Input *input)
-{
-    //On gère le clavier (on rajoutera plus tard la gestion
-    //des joysticks)
-    getInput(input);
-}
- 
+#include "structs.h"
  
 void getInput(Input *input)
 {
@@ -136,4 +127,10 @@ void getInput(Input *input)
         }
  
     }
+}
+void gestionInputs(Input *input)
+{
+    //On gère le clavier (on rajoutera plus tard la gestion
+    //des joysticks)
+    getInput(input);
 }

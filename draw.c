@@ -1,15 +1,5 @@
-#include "prototypes.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
-#include <SDL2/SDL.h>
- 
-#include <SDL2/SDL_image.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_mixer.h>
- 
- 
+//#include "prototypes.h"
+/* 
 void drawGame(void)
 {
  
@@ -23,8 +13,7 @@ void drawGame(void)
     // Délai pour laisser respirer le proc
     SDL_Delay(1);
 }
- 
- 
+*/
 void delay(unsigned int frameLimit)
 {
     // Gestion des 60 fps (images/stories/seconde)
