@@ -12,3 +12,6 @@ input.o : input.c prototypes.h
 
 main.o : main.c prototypes.h
 	gcc -c   main.c
+
+map.o  : map.c prototypes.h
+	gcc -c  map.c -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image

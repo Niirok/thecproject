@@ -13,7 +13,10 @@ int main(int argc, char *argv[])
     // Initialisation de la SDL 
     init("Je suce des gnomes");
  
-    // Appelle la fonction cleanup à la fin du programme 
+	// Chargement des ressources (graphismes, sons)
+		loadGame();
+    
+	// Appelle la fonction cleanup à la fin du programme 
     atexit(cleanup);
  
     go = 1;

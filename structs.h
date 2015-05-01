@@ -12,5 +12,11 @@ typedef struct Input
     int left, right, up, down, jump, attack, enter, erase, pause;
  
 } Input;
+
+ typedef struct Map
+{
  
+SDL_Texture* background;
+ 
+} Map; 
 #endif
