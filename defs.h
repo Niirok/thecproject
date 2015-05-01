@@ -12,9 +12,9 @@
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_mixer.h>
  
-// Taille de la fenêtre : 800x480 pixels 
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 480
+// Taille de la fenêtre : 500x500 pixels 
+#define SCREEN_WIDTH 500
+#define SCREEN_HEIGHT 500
 
  
 #endif

@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     int go;
  
     // Initialisation de la SDL 
-    init("Rabidja 3 - SDL 2 - www.meruvia.fr");
+    init("Je suce des gnomes");
  
     // Appelle la fonction cleanup à la fin du programme 
     atexit(cleanup);
