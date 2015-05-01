@@ -1,3 +1,12 @@
-Va falloir penser à faire un makefile digne de ce nom mais en attendant, 
+tuto git
 
-gcc main.c -o LeJeuDuSwag -Wall -Wextra -lSDL2
+
+
+Lors de la création d'une nouvelle branche faire
+
+git branch nomdelabranche
+git checkout nomdelabranche
+
+pour l'intialiser et la rendre visible sur le dépot faire
+
+git push --set-upstream origin nomdelabranche
