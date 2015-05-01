@@ -1,15 +1,15 @@
-#ifndef DEF_STRUCTS_H
-#define DEF_STRUCTS_H
+#ifndef DEF_STRUCTS
+#define DEF_STRUCTS
  
-#include "paramdef.h"
+#include "defs.h"
  
-//Seront mise ici toutes les structures utilisées pour la programation du jeu
+/* Structures qui seront utilisées pour gérer le jeu */
  
-// Structure pour gérer l'input clavier/souris
+// Structure pour gérer l'input (clavier puis joystick) 
 typedef struct Input
 {
  
-    int mouseleft, mouseright, color1,color2,color3,color4,color5,color6,color7,color8,color9,pause,mute;
+    int left, right, up, down, jump, attack, enter, erase, pause;
  
 } Input;
  

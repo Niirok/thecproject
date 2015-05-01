@@ -1,4 +1,13 @@
-#include "structs.h"
+#include "prototypes.h"
+#include <SDL2/SDL.h>
+ 
+void gestionInputs(Input *input)
+{
+    //On gère le clavier (on rajoutera plus tard la gestion
+    //des joysticks)
+    getInput(input);
+}
+ 
  
 void getInput(Input *input)
 {
@@ -23,49 +32,39 @@ void getInput(Input *input)
                         exit(0);
                     break;
  
-                    case SDLK_a:
-                        input->color1 = 1;
+                    case SDLK_DELETE:
+                        input->erase = 1;
                     break;
  
-                    case SDLK_z:
-                        input->color2 = 1;
+                    case SDLK_c:
+                        input->jump = 1;
                     break;
  
-                    case SDLK_e:
-                        input->color3 = 1;
+                    case SDLK_v:
+                        input->attack = 1;
                     break;
  
-                    case SDLK_q:
-                        input->color4 = 1;
+                    case SDLK_LEFT:
+                        input->left = 1;
                     break;
  
-                    case SDLK_s:
-                        input->color5 = 1;
+                    case SDLK_RIGHT:
+                        input->right = 1;
                     break;
  
-                    case SDLK_d:
-                        input->color6 = 1;
+                    case SDLK_DOWN:
+                        input->down = 1;
                     break;
  
-                    case SDLK_w:
-                        input->color7 = 1;
+                    case SDLK_UP:
+                        input->up = 1;
                     break;
-
-                    case SDLK_x:
-                        input->color8 = 1;
+ 
+ 
+                    case SDLK_RETURN:
+                        input->enter = 1;
                     break;
-
-					case SDLK_c:
-                        input->color9 = 1;
-                    break;
-
-					case SDLK_m:
-                        input->mute = 1;
-                    break;
-
-					case SDLK_p:
-                        input->pause = 1;
-                    break;
+ 
  
                     default:
                     break;
@@ -75,48 +74,32 @@ void getInput(Input *input)
             case SDL_KEYUP:
                 switch (event.key.keysym.sym)
                 {
-                    case SDLK_a:
-                        input->color1 = 0;
+                    case SDLK_DELETE:
+                        input->erase = 0;
                     break;
  
-                    case SDLK_z:
-                        input->color2 = 0;
+                    case SDLK_c:
+                        input->jump = 0;
                     break;
  
-                    case SDLK_e:
-                        input->color3 = 0;
+                    case SDLK_LEFT:
+                        input->left = 0;
                     break;
  
-                    case SDLK_q:
-                        input->color4 = 0;
+                    case SDLK_RIGHT:
+                        input->right = 0;
                     break;
  
-                    case SDLK_s:
-                        input->color5 = 0;
+                    case SDLK_DOWN:
+                        input->down = 0;
                     break;
  
-                    case SDLK_d:
-                        input->color6 = 0;
+                    case SDLK_UP:
+                        input->up = 0;
                     break;
  
-                    case SDLK_w:
-                        input->color7 = 0;
-                    break;
-
-                    case SDLK_x:
-                        input->color8 = 0;
-                    break;
-
-					case SDLK_c:
-                        input->color9 = 0;
-                    break;
-
-					case SDLK_m:
-                        input->mute = 0;
-                    break;
-
-					case SDLK_p:
-                        input->pause = 0;
+                    case SDLK_RETURN:
+                        input->enter = 0;
                     break;
  
                     default:
@@ -127,10 +110,4 @@ void getInput(Input *input)
         }
  
     }
-}
-void gestionInputs(Input *input)
-{
-    //On gère le clavier (on rajoutera plus tard la gestion
-    //des joysticks)
-    getInput(input);
 }

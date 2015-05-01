@@ -1,19 +1,11 @@
 #include "prototypes.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <math.h>
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_image.h"
-#include "SDL2/SDL_ttf.h"
-#include "SDL2/SDL_mixer.h"
- 
+#include <SDL2/SDL.h>
  
 SDL_Window *screen;
 SDL_Renderer *renderer;
  
  
-SDL_Renderer *getrenderer(void)
+SDL_Renderer *getrenderer()
 {
     return renderer;
 }
@@ -63,7 +55,7 @@ void init(char *title)
     }
  
     //On initialise SDL_Mixer 2, qui gérera la musique et les effets sonores
-    int flags = MIX_INIT_MP3;
+    int flags = MIX_INIT_OGG;
     int initted = Mix_Init(flags);
     if ((initted & flags) != flags)
     {
