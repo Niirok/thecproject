@@ -101,7 +101,7 @@ void getInput(Input *input)
                         }else{ input-> mute = 0;}
                     break;
  
- 										case SDLK_SAPCE:
+ 										case SDLK_SPACE:
                         input->changeBack = 1;
                     break;
  
