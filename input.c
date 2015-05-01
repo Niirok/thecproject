@@ -1,10 +1,7 @@
 #include "prototypes.h"
 #include <SDL2/SDL.h>
  
-void gestionInputs(Input *input)
-{
-    //On gère le clavier (on rajoutera plus tard la gestion
-    //des joysticks)
+void gestionInputs(Input *input){
     getInput(input);
     
     if(input->shoot==1){/*gerer le tir en fonction de la couleur jaune ou orange*/}
@@ -17,16 +14,12 @@ void gestionInputs(Input *input)
     if(input->green==1){/*full circle,check green, si disponible, activation*/}
     if(input->purple==1){/*nuke,check purple si disponible, activation*/}
     if(input->pink==1){/*freeze total, check pink, si disponible, activation*/}
-    if(input->violet==1){/* invincible, check violet, si disponible, activation*/}
-    
-    
-    
-    
+    if(input->violet==1){/* invincible, check violet, si disponible, activation*/}   
 }
  
  
-void getInput(Input *input)
-{
+void getInput(Input *input){
+
     SDL_Event event;
  
     /* Keymapping : gère les appuis sur les touches et les enregistre
