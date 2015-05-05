@@ -15,6 +15,8 @@
 // Taille de la fenêtre : 500x500 pixels 
 #define SCREEN_WIDTH 500
 #define SCREEN_HEIGHT 500
+#define PLR_X 250
+#define PLR_X 250
 
  
 #endif

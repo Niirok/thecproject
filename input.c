@@ -1,12 +1,11 @@
 #include "prototypes.h"
-#include <SDL2/SDL.h>
  
 void gestionInputs(Input *input){
     getInput(input);
     
-    if(input->shoot==1){/*gerer le tir en fonction de la couleur jaune ou orange*/}
-    if(input->m==1){/*mute le jeu*/}
-    if(input->p==1){/*pause le jeu tant que cette valeur est de 1*/}
+    if(input->orange==1){/*gerer le tir en fonction de la couleur jaune ou orange*/}
+    if(input->mute==1){/*mute le jeu*/}
+    if(input->pause==1){/*pause le jeu tant que cette valeur est de 1*/}
     if(input->yellow==1){/*laser,check jaune, si disponible, activation*/}
     if(input->red==1){/*heal,check red, si disponible, activation*/}
     if(input->navyblue==1){/*slow, check navyblue, si disponible, activation*/}
@@ -21,11 +20,8 @@ void gestionInputs(Input *input){
 void getInput(Input *input){
 
     SDL_Event event;
- 
-    /* Keymapping : gère les appuis sur les touches et les enregistre
-    dans la structure input */
- 
-    while (SDL_PollEvent(&event))
+    int x,y;
+	  while (SDL_PollEvent(&event))
     {
         switch (event.type)
         {
@@ -38,7 +34,7 @@ void getInput(Input *input){
 								switch (event.button.button)
 								{
 										case SDL_BUTTON_LEFT:
-											input->shoot = 1;
+											input->orange = 1;
 										break;
 										
 										default:
@@ -50,7 +46,7 @@ void getInput(Input *input){
 								switch (event.button.button)
 								{
 										case SDL_BUTTON_LEFT:
-											input->shoot = 0;
+											input->orange = 0;
 										break;
 										
 										default:
@@ -67,35 +63,31 @@ void getInput(Input *input){
                     break;
  
                     case SDLK_a:
-                        input->color2 = 1;
-                    break;
- 
-                    case SDLK_e:
-                        input->color3 = 1;
-                    break;
+                        input->yellow = 1;
+										break;
  
                     case SDLK_q:
-                        input->color4 = 1;
+                        input->navyblue = 1;
                     break;
  
                     case SDLK_s:
-                        input->color5 = 1;
+                        input->turquoise = 1;
                     break;
  
                     case SDLK_d:
-                        input->color6 = 1;
+                        input->green = 1;
                     break;
  
                     case SDLK_w:
-                        input->color7 = 1;
+                        input->purple = 1;
                     break;
  
                     case SDLK_x:
-                        input->color8 = 1;
+                        input->pink = 1;
                     break;
  
                     case SDLK_c:
-                        input->color9 = 1;
+                        input->violet = 1;
                     break;
                     
                     case SDLK_p:
@@ -120,4 +112,7 @@ void getInput(Input *input){
            break;
         }
     }
+    SDL_GetMouseState(&x,&y);
+    input->aimx = x;
+    input->aimy = y;
 }
