@@ -19,7 +19,7 @@ extern void initInputs(Input* i);
 extern void initMaps(void);
 extern  void loadGame(void);
 extern SDL_Renderer *getrenderer(void); //todo corrigé le place * dans le pointeur
-extern SDL_Texture* getBackground();
+extern SDL_Texture* getBackground(Map*);
 extern SDL_Texture* loadImage(char* name);
 
 

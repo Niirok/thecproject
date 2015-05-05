@@ -16,7 +16,7 @@ typedef struct Input{ // Structure pour gérer l'input clavier
 	SDL_Texture* dim1;
 	SDL_Texture* dim2;
 	int activemap;
-}Map; 
+} Map; 
 
 
 typedef struct Player {

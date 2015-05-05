@@ -2,7 +2,7 @@
 #include "structs.h" 
 #include <SDL2/SDL.h>
  
-Map map;
+Map* map;
 
 void initMaps(void) {// Charge l'image du fond (background)
 	map.dim1=loadImage("Dim1.bmp");
@@ -11,7 +11,7 @@ void initMaps(void) {// Charge l'image du fond (background)
 }
 
  // Todo gérer le multi background après l'implé du switch via touch
-SDL_Texture* getBackground() {
+SDL_Texture* getBackground(map) {
 	switch (map.activemap){
 		case 1:
 			return map.dim1;
