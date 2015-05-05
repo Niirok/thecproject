@@ -1,6 +1,6 @@
 #include "prototypes.h"
 #include <SDL2/SDL.h>
-#include "map.c"
+
  
 void drawGame(void){
  
