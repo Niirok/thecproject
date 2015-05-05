@@ -17,6 +17,8 @@
 #define SCREEN_HEIGHT 500
 #define PLR_X 250
 #define PLR_X 250
+#define PLAYER_WIDTH 40
+#define PLAYER_HEIGTH 50
 
  
 #endif
