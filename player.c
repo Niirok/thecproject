@@ -15,6 +15,11 @@ void initializePlayer(void){
 	player.cdPin=0;player.active[7]=0;
 	player.cdVio=0;player.active[8]=0;
 	player.active[0]=1;
-	
+}
+
+void shoot(Player *player){
+	if (player->cdOra==0){
+		
+	}
 }
 

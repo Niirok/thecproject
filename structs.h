@@ -16,4 +16,7 @@ typedef struct Player {
 	int active[9];
 } Player;
 
+typedef struct Shoot{
+	int velocity;// moving speed of the shoot
+}Shoot;
 #endif
