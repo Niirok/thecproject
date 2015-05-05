@@ -2,7 +2,7 @@
 #include <SDL2/SDL.h>
  
 /* Déclaration des variables / structures utilisées par le jeu */
-Input input;
+ Input input;
  
  
 int main(int argc, char *argv[])
@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
  
     // Initialisation de la SDL 
     init("Je suce des gnomes");
+	//initInputs(&input);
  
 	// Chargement des ressources (graphismes, sons)
 		loadGame();

@@ -4,8 +4,8 @@
  
 Map map1;
 Map map2;
- 
- 
+int mapChange=0; 
+Input* i; 
 void initMaps(void) {
 	// Charge l'image du fond (background)
 	map1.background = loadImage("Dim1.bmp");
@@ -13,8 +13,28 @@ void initMaps(void) {
 }
 
  // Todo gérer le multi background après l'implé du switch via touch
-SDL_Texture* getBackground(void) {
-	return map2.background;
+SDL_Texture* getBackground() {
+	/*if(i -> changeBack==1){
+		if(mapChange == 0){
+			mapChange=1;		
+		}
+		if(mapChange == 1){
+			mapChange=0;		
+		}	
+	
+		if(mapChange == 0){	
+			return map1.background;
+		}
+
+		else{return map2.background;}
+	}
+	*/
+	if(mapChange == 0){	
+		return map1.background;
+	}
+
+	else{return map2.background;}
+
 }
  
  

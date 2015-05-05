@@ -1,9 +1,10 @@
 #include "prototypes.h"
 #include <SDL2/SDL.h>
 
- 
+
+Input* i;
 void drawGame(void){
- 
+
 	// Affiche le fond (background) aux coordonnées (0,0)
 	drawImage(getBackground(), 0, 0);
  
