@@ -1,3 +1,0 @@
-Va falloir penser à faire un makefile digne de ce nom mais en attendant, 
-
-gcc main.c -o LeJeuDuSwag -Wall -Wextra -lSDL2

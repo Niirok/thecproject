@@ -4,14 +4,12 @@
 #include "defs.h"
  
 /* Structures qui seront utilisées pour gérer le jeu */
- 
-// Structure pour gérer l'input (clavier puis joystick) 
-typedef struct Input
-{
- 
-    int left, right, up, down, jump, attack, enter, erase, pause;
- 
+
+typedef struct Input{ // Structure pour gérer l'input clavier
+
+    int orange, yellow, red, navyblue, turquoise, green, purple,pink,violet,pause,mute,changeBack,aimx, aimy;
 } Input;
+
 
  typedef struct Map
 {
@@ -19,4 +17,13 @@ typedef struct Input
 SDL_Texture* background;
  
 } Map; 
+
+
+typedef struct Player {
+
+	int health, score, cdOra, cdYell, cdRed, cdNBlu, cdTur, cdGree, cdPur, cdPin, cdVio;
+	int active[9];
+} Player;
+
 #endif
+

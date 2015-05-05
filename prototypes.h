@@ -15,12 +15,16 @@ extern void drawImage(SDL_Texture *image, int x, int y);
 extern void gestionInputs(Input *input);
 extern void getInput(Input *input);
 extern void init(char *);
+<<<<<<< HEAD
 extern void initMaps(void);
 extern  void loadGame(void);
 extern SDL_Renderer *getrenderer(void); //todo corrigé le place * dans le pointeur
 extern SDL_Texture* getBackground(void);
 extern SDL_Texture* loadImage(char* name);
 
+=======
+extern void initialazePlayer(void); 
+>>>>>>> AnthoPlayer
  
  
 #endif
