@@ -1,7 +1,6 @@
 #include "prototypes.h"
 
 Player player;
-Input input;
 
 void initializePlayer(void){
 	player.health = 100;
@@ -23,7 +22,7 @@ void initializePlayer(void){
 void updatePlayer(Input* input){
 	player.viewX = input->aimX;
 	player.viewY = input->aimY;
-	dimSwitch();
+	dimSwitch(input);
 //if(input->orange==1){/*gerer le tir en fonction de la couleur jaune ou orange*/}
 //if(input->mute==1){/*mute le jeu*/}
 //if(input->pause==1){/*pause le jeu tant que cette valeur est de 1*/}
