@@ -2,19 +2,19 @@
 
 void initInputs(Input* input){
 	input->orange=0;
-	i->yellow=0;
-	i->red=0;
-	i->navyblue=0;
-	i->turquoise=0;
-	i->green=0;
-	i->purple=0;
-	i->pink=0;
-	i->violet=0;
-	i->pause=0;
-	i->mute=0;
-	i->changeBack=0;
-	i->aimX=0;
-	i->aimY=0;
+	input->yellow=0;
+	input->red=0;
+	input->navyblue=0;
+	input->turquoise=0;
+	input->green=0;
+	input->purple=0;
+	input->pink=0;
+	input->violet=0;
+	input->pause=0;
+	input->mute=0;
+	input->changeBack=0;
+	input->aimX=0;
+	input->aimY=0;
 }
  
 void gestionInputs(Input *input){

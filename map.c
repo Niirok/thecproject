@@ -8,16 +8,18 @@ Input input;
 void initMaps(void) {// Charge l'image du fond (background)
 	map.dim1=loadImage("Dim1.bmp");
 	map.dim2=loadImage("Dim2.bmp");
-	map.activemap = 2;
+	map.activemap = 1;
 }
 
-void dimSwitch(void){
-	if (input.changeBack == 1){
-		if(map.activemap == 1 ){
+void dimSwitch(Input *input){
+	if (input->changeBack == 1){
+		if(map.activemap == 1){
 				map.activemap = 2;
+				input-> changeBack = 0;
 		}else{ 
 				if(map.activemap == 2){
-				map.activemap =1;
+				map.activemap = 1;
+				input-> changeBack = 0;
 			}
 		}
 	}

@@ -58,14 +58,14 @@ void getInput(Input *input){
 										break;
 								 }
 						break;
-						case SDL_KEYUP:
+						/*case SDL_KEYUP:
             
                 switch (event.key.keysym.sym)
                 {
                     case SDLK_SPACE:
                         input->changeBack = 0;
                     break;
-								}	
+								}	*/
             case SDL_KEYDOWN:
             
                 switch (event.key.keysym.sym)

@@ -12,7 +12,7 @@ extern void delay(unsigned int frameLimit);
 extern void drawGame(void);
 extern void drawImage(SDL_Texture *image, int x, int y);
 extern void drawMap(void);
-extern void dimSwitch(void);
+extern void dimSwitch(Input *input);
 extern void gestionInputs(Input *input);
 extern void getInput(Input *input);
 extern void init(char *);

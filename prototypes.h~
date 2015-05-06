@@ -23,6 +23,6 @@ extern void loadGame(void);
 extern SDL_Renderer *getrenderer(void); //todo corrigé le place * dans le pointeur
 extern SDL_Texture* getBackground();
 extern SDL_Texture* loadImage(char* name);
-extern void updatePlayer(void); 
+extern void updatePlayer(Input *input);
  
 #endif
