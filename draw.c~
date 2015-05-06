@@ -6,11 +6,12 @@ Map* map;
 void drawGame(void){
 
 	// Affiche le fond (background) aux coordonnées (0,0)
-	drawImage(getBackground(void), 0, 0);
+	drawImage(getBackground(), 0, 0);
  
 	// Affiche l'écran
 	SDL_RenderPresent(getrenderer());
- 
+ 	SDL_RenderClear(getrenderer());
+	//SDL_RenderPresent(getrenderer());
     // Délai pour laisser respirer le proc
     SDL_Delay(1);
 }

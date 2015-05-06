@@ -10,7 +10,8 @@ void drawGame(void){
  
 	// Affiche l'écran
 	SDL_RenderPresent(getrenderer());
- 
+ 	SDL_RenderClear(getrenderer());
+	//SDL_RenderPresent(getrenderer());--> savoir à quoi cette fonction sert
     // Délai pour laisser respirer le proc
     SDL_Delay(1);
 }
