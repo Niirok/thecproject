@@ -17,6 +17,16 @@ typedef struct Player {
 } Player;
 
 typedef struct Shoot{
-	int velocity;// moving speed of the shoot
+	int dimension;// dimension of the shoot	
+	const int speed;
+	int posX;
+	int posY;
+	int progressX;
+	int progressY;
 }Shoot;
+
+/*début des fonctions de la structure shoot*/
+
+shoot shoot(int x, int y);
+int maxAbs (int x, int y); 
 #endif

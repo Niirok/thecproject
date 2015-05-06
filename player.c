@@ -1,4 +1,5 @@
 #include "prototypes.h"
+#include <time.h>
 
 Player player;
 
@@ -15,11 +16,18 @@ void initializePlayer(void){
 	player.cdPin=0;player.active[7]=0;
 	player.cdVio=0;player.active[8]=0;
 	player.active[0]=1;
+}//player.active pourrait donner le niveau de la couleur
+int maxAbs (int x, int y){
+	if(x<0){
+		x = -x;
+	}
+	if(y<0){
+		y = -y;
+	}
+	return (maxAbs=(x<y)? x : y);
 }
-
 void shoot(Player *player){
-	if (player->cdOra==0){
-		
+	if (player.active[0]=1 && player->cdOra==0){
+
 	}
 }
-
