@@ -18,7 +18,7 @@ void initializePlayer(void){
 	player.viewX = 0;
 	player.viewY = 0;
 }
-
+//player.active pourrait donner le niveau de la couleur
 void updatePlayer(Input* input){
 	player.viewX = input->aimX;
 	player.viewY = input->aimY;
@@ -35,3 +35,5 @@ void updatePlayer(Input* input){
 //if(input->pink==1){/*freeze total, check pink, si disponible, activation*/}
 //if(input->violet==1){/* invincible, check violet, si disponible, activation*/} 
 }
+
+
