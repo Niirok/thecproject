@@ -7,8 +7,8 @@
 
 typedef struct Input{ // Structure pour gérer l'input clavier
 
-    int orange, yellow, red, navyblue, turquoise, green, purple,pink,violet,pause,mute,changeBack,aimx, aimy;
-} Input;
+    int orange, yellow, red, navyblue, turquoise, green, purple,pink,violet,pause,mute,changeBack,aimX, aimY;
+}Input;
 
 
  typedef struct Map
@@ -21,9 +21,10 @@ typedef struct Input{ // Structure pour gérer l'input clavier
 
 typedef struct Player {
 
-	int health, score, cdOra, cdYell, cdRed, cdNBlu, cdTur, cdGree, cdPur, cdPin, cdVio;
+	int health, score, cdOra, cdYell, cdRed, cdNBlu, cdTur, cdGree, cdPur, cdPin, cdVio, viewX, viewY;
+
 	int active[9];
-} Player;
+}Player;
 
 #endif
 

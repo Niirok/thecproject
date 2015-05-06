@@ -3,13 +3,25 @@
 #include <SDL2/SDL.h>
  
 Map map;
+Input input;
 
 void initMaps(void) {// Charge l'image du fond (background)
 	map.dim1=loadImage("Dim1.bmp");
 	map.dim2=loadImage("Dim2.bmp");
-	map.activemap = 1;
+	map.activemap = 2;
 }
 
+void dimSwitch(void){
+	if (input.changeBack == 1){
+		if(map.activemap == 1 ){
+				map.activemap = 2;
+		}else{ 
+				if(map.activemap == 2){
+				map.activemap =1;
+			}
+		}
+	}
+}
  // Todo gérer le multi background après l'implé du switch via touch
 SDL_Texture* getBackground() {
 	switch (map.activemap){
@@ -24,7 +36,8 @@ SDL_Texture* getBackground() {
     break;
 	}
 }
- 
+
+
 void cleanMaps(void){
 	// Libère la texture du background
 	if (map.dim1 != NULL)	{

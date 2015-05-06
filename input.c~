@@ -1,37 +1,24 @@
 #include "prototypes.h"
 
-void initInputs(Input* i){
-i -> orange=0;
-i -> yellow=0;
-i -> red=0;
-i -> navyblue=0;
-i -> turquoise=0;
-i -> green=0;
-i -> purple=0;
-i ->pink=0;
-i ->violet=0;
-i ->pause=0;
-i ->mute=0;
-i ->changeBack=0;
-i ->aimx=0;
-i -> aimy=0;
+void initInputs(Input* input){
+	input->orange=0;
+	i->yellow=0;
+	i->red=0;
+	i->navyblue=0;
+	i->turquoise=0;
+	i->green=0;
+	i->purple=0;
+	i->pink=0;
+	i->violet=0;
+	i->pause=0;
+	i->mute=0;
+	i->changeBack=0;
+	i->aimX=0;
+	i->aimY=0;
 }
  
 void gestionInputs(Input *input){
     getInput(input);
-  
-//    if(input->orange==1){/*gerer le tir en fonction de la couleur jaune ou orange*/}
-//     if(input->mute==1){/*mute le jeu*/}
-//     if(input->pause==1){/*pause le jeu tant que cette valeur est de 1*/}
-//     if(input->yellow==1){/*laser,check jaune, si disponible, activation*/}
-//     if(input->red==1){/*heal,check red, si disponible, activation*/}
-// //     if(input->navyblue==1){/*slow, check navyblue, si disponible, activation*/}
-//     if(input->turquoise==1){/*ally,check turquoise, si disponible, activation*/}
-//     if(input->green==1){/*full circle,check green, si disponible, activation*/}
- //    if(input->purple==1){/*nuke,check purple si disponible, activation*/}
- //    if(input->pink==1){/*freeze total, check pink, si disponible, activation*/}
-//     if(input->violet==1){/* invincible, check violet, si disponible, activation*/}   
-
 }
  
  
@@ -71,7 +58,14 @@ void getInput(Input *input){
 										break;
 								 }
 						break;
-							
+						case SDL_KEYUP:
+            
+                switch (event.key.keysym.sym)
+                {
+                    case SDLK_SPACE:
+                        input->changeBack = 0;
+                    break;
+								}	
             case SDL_KEYDOWN:
             
                 switch (event.key.keysym.sym)
@@ -120,7 +114,7 @@ void getInput(Input *input){
                         }else{ input-> mute = 0;}
                     break;
  
-			case SDLK_SPACE:
+										case SDLK_SPACE:
                         input->changeBack = 1;
                     break;
  
@@ -131,6 +125,6 @@ void getInput(Input *input){
         }
     }
     SDL_GetMouseState(&x,&y);
-    input->aimx = x;
-    input->aimy = y;
+    input->aimX = x;
+    input->aimY = y;
 }

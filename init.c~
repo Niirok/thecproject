@@ -13,6 +13,12 @@ SDL_Renderer *getrenderer()
  
 void init(char *title)
 {
+    /* On crée la fenêtre, représentée par le pointeur jeu.window en utilisant la largeur et la
+    hauteur définies dans les defines (defs.h).
+    Nouveautés SDL2 : on peut centrer la fenêtre avec SDL_WINDOWPOS_CENTERED, et choisir la taille
+    de la fenêtre, pour que la carte graphique l'agrandisse automatiquement. Notez aussi qu'on peut
+    maintenant créer plusieurs fenêtres. */
+ 
     screen = SDL_CreateWindow(title,
                                   SDL_WINDOWPOS_CENTERED,
                                   SDL_WINDOWPOS_CENTERED,

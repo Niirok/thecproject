@@ -12,19 +12,17 @@ extern void delay(unsigned int frameLimit);
 extern void drawGame(void);
 extern void drawImage(SDL_Texture *image, int x, int y);
 extern void drawMap(void);
+extern void dimSwitch(void);
 extern void gestionInputs(Input *input);
 extern void getInput(Input *input);
 extern void init(char *);
 extern void initInputs(Input* i);
 extern void initMaps(void);
-extern  void loadGame(void);
+extern void initializePlayer(void);
+extern void loadGame(void);
 extern SDL_Renderer *getrenderer(void); //todo corrigé le place * dans le pointeur
-extern SDL_Texture* getBackground(Map*);
+extern SDL_Texture* getBackground();
 extern SDL_Texture* loadImage(char* name);
-
-
-extern void initialazePlayer(void); 
-
- 
+extern void updatePlayer(void); 
  
 #endif

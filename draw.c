@@ -1,12 +1,12 @@
 #include "prototypes.h"
 #include <SDL2/SDL.h>
 
-
 Map* map;
+
 void drawGame(void){
 
 	// Affiche le fond (background) aux coordonnées (0,0)
-	drawImage(getBackground(map), 0, 0);
+	drawImage(getBackground(), 0, 0);
  
 	// Affiche l'écran
 	SDL_RenderPresent(getrenderer());
