@@ -7,13 +7,14 @@ void drawGame(void){
 
 	// Affiche le fond (background) aux coordonnées (0,0)
 	drawImage(getBackground(), 0, 0);
+	
+	drawPlayer();
  
 	// Affiche l'écran
 	SDL_RenderPresent(getrenderer());
- 	SDL_RenderClear(getrenderer());
-	//SDL_RenderPresent(getrenderer());--> savoir à quoi cette fonction sert
-    // Délai pour laisser respirer le proc
-    SDL_Delay(1);
+
+   // Délai pour laisser respirer le proc
+   SDL_Delay(1);
 }
 
 SDL_Texture* loadImage(char* name) {

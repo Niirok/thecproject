@@ -13,7 +13,8 @@ int main(int argc, char *argv[])
  
     // Initialisation de la SDL 
     init("Je suce des gnomes");
-		//initInputs(&input);
+		initializePlayer();
+		initInputs(&input);
  
 	// Chargement des ressources (graphismes, sons)
 		loadGame();

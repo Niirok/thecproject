@@ -8,6 +8,7 @@
  
 extern void cleanMaps(void);
 extern void cleanup(void);
+extern void cleanPlayer(void);
 extern void delay(unsigned int frameLimit);
 extern void drawGame(void);
 extern void drawImage(SDL_Texture *image, int x, int y);
@@ -18,6 +19,7 @@ extern void getInput(Input *input);
 extern void init(char *);
 extern void initInputs(Input* i);
 extern void initMaps(void);
+extern void initPlayerSprite(void);
 extern void initializePlayer(void);
 extern void loadGame(void);
 extern SDL_Renderer *getrenderer(void); //todo corrigé le place * dans le pointeur

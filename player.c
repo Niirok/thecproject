@@ -1,6 +1,35 @@
 #include "prototypes.h"
 
 Player player;
+SDL_Texture* playerSprite;
+
+void initPlayerSprite(void){
+	playerSprite = loadImage("spaceship.png");
+}
+
+void cleanPlayer(void){
+	if(playerSprite != NULL){
+		SDL_DestroyTexture(playerSprite);
+		playerSprite = NULL;
+	}
+}
+
+void drawPlayer(){
+	SDL_Rect src;
+	src.x = 0;
+	src.y = 0;
+	src.w = 55;
+	src.h = 41;
+	
+	
+	SDL_Rect dest;
+	dest.x = 250;
+	dest.y = 250;
+	dest.w = 55; 
+	dest.h = 41;
+
+SDL_RenderCopyEx(getrenderer(), playerSprite, &src, &dest, 0, 0, SDL_FLIP_NONE);
+}
 
 void initializePlayer(void){
 	player.health = 100;

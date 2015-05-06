@@ -7,7 +7,7 @@
 
 typedef struct Input{ // Structure pour gérer l'input clavier
 
-    int orange, yellow, red, navyblue, turquoise, green, purple,pink,violet,pause,mute,changeBack,aimx, aimy;
+    int orange, yellow, red, navyblue, turquoise, green, purple,pink,violet,pause,mute,changeBack,aimX, aimY;
 }Input;
 
 
@@ -26,5 +26,18 @@ typedef struct Player {
 	int active[9];
 }Player;
 
+typedef struct Shoot{
+	int dimension;// dimension of the shoot	
+	const int speed;
+	int posX;
+	int posY;
+	int progressX;
+	int progressY;
+}Shoot;
+
+/*début des fonctions de la structure shoot*/
+
+Soot shoot(int x, int y);
+int maxAbs (int x, int y); 
 #endif
 

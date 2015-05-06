@@ -72,8 +72,8 @@ void init(char *title)
  
  
 void loadGame(void) {
-	//On charge les données pour la map
-	initMaps();
+	initMaps();//On charge les données pour la map
+	initPlayerSprite();
 }
 
  
@@ -81,6 +81,7 @@ void cleanup()
 {
 	 //Nettoie les sprites de la map
 	cleanMaps();
+	cleanPlayer();
 
     //On quitte SDL_Mixer 2 et on décharge la mémoire
     Mix_CloseAudio();

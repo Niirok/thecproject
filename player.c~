@@ -1,6 +1,35 @@
 #include "prototypes.h"
 
 Player player;
+SDL_Texture* playerSprite;
+
+void initPlayerSprite(void){
+	playerSprite = loadImage("spaceship.png");
+}
+
+void cleanPlayer(void){
+	if(playerSprite != NULL){
+		SDL_DestroyTexture(playerSprite);
+		playerSprite = NULL;
+	}
+}
+
+void drawPlayer(){
+	SDL_Rect src;
+	src.x = 0;
+	src.y = 0;
+	src.w = 55;
+	src.h = 41;
+	
+	
+	SDL_Rect dest;
+	dest.x = PLR_X;
+	dest.y = PLR_Y;
+	dest.w = 55; 
+	dest.h = 41;
+
+SDL_RenderCopyEx(getrenderer(), playerSprite, &src, &dest, 0, 0, SDL_FLIP_NONE);
+}
 
 void initializePlayer(void){
 	player.health = 100;
@@ -18,7 +47,7 @@ void initializePlayer(void){
 	player.viewX = 0;
 	player.viewY = 0;
 }
-
+//player.active pourrait donner le niveau de la couleur
 void updatePlayer(Input* input){
 	player.viewX = input->aimX;
 	player.viewY = input->aimY;
@@ -35,3 +64,5 @@ void updatePlayer(Input* input){
 //if(input->pink==1){/*freeze total, check pink, si disponible, activation*/}
 //if(input->violet==1){/* invincible, check violet, si disponible, activation*/} 
 }
+
+
