@@ -37,7 +37,7 @@ typedef struct Shoot{
 
 /*début des fonctions de la structure shoot*/
 
-shoot shoot(int x, int y);
+Shoot shootOrange(int dim, int x, int y);
 int maxAbs (int x, int y); 
 #endif
 
