@@ -74,6 +74,7 @@ void init(char *title)
 void loadGame(void) {
 	//On charge les données pour la map
 	initMaps();
+	initEnnemySprites();
 }
 
  

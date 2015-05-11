@@ -1,5 +1,5 @@
-jeuC : draw.o init.o input.o map.o player.o main.o
-	gcc  draw.o init.o input.o  map.o player.o main.o -o jeuC -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image
+jeuC : draw.o init.o input.o map.o player.o main.o ennemy.o
+	gcc  draw.o init.o input.o  map.o player.o main.o ennemy.o -o jeuC -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image -lm
 
 
 draw.o : draw.c prototypes.h
@@ -20,9 +20,15 @@ main.o : main.c prototypes.h
 map.o  : map.c prototypes.h
 	gcc -c  map.c -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image
 
+ennemy.o :ennemy.c prototypes.h
+	gcc -c ennemy.c
+
 clean:
 	rm -f *.o core
 	
 mrproper:	clean
 	rm -f *.o jeuC
+
+
+	
 

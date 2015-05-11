@@ -26,19 +26,17 @@ typedef struct Player {
 	int active[9];
 }Player; 
 
+typedef enum Name{
+	octogone, rectangle, cross
+}Name;
+
 typedef struct Ennemy{
 
-	int health, int speed , Behaviour behaviour, Name name;
+	int health, speed, posX, posY;
+	Name name;
 
 }Ennemy; 
 
-typedef enum Behaviour{
-	linear, spiral, teleportation;
-}Behaviour;
-
-typedef enum Name{
-	circle, rectangle, octogone;
-}Name;
 
 typedef struct Shoot{
 	int dimension;// dimension of the shoot	
