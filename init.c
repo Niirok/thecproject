@@ -39,7 +39,7 @@ void init(char *title)
     }
  
     //On cache le curseur de la souris 
-    SDL_ShowCursor(SDL_DISABLE);
+    SDL_ShowCursor(1);
  
     //On initialise SDL_TTF 2 qui gérera l'écriture de texte
     if (TTF_Init() < 0)

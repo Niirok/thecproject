@@ -1,5 +1,5 @@
 jeuC : draw.o init.o input.o map.o player.o main.o
-	gcc  draw.o init.o input.o  map.o player.o main.o -o jeuC -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image
+	gcc  draw.o init.o input.o  map.o player.o main.o -o jeuC -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image -lm
 
 
 draw.o : draw.c prototypes.h

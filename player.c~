@@ -15,6 +15,12 @@ void cleanPlayer(void){
 }
 
 void drawPlayer(){
+	
+	float Dx = player.viewX - PLR_X;
+	float Dy = player.viewY - PLR_Y; 
+	float alpha = Dy/Dx;
+	float angle;
+
 	SDL_Rect src;
 	src.x = 0;
 	src.y = 0;
@@ -23,12 +29,13 @@ void drawPlayer(){
 	
 	
 	SDL_Rect dest;
-	dest.x = PLR_X;
-	dest.y = PLR_Y;
+	dest.x =PLR_X-(src.w/2);
+	dest.y =PLR_Y-20;//(src.h/2);
 	dest.w = 55; 
 	dest.h = 41;
+	angle = atanf2(Dy,Dx)*180/M_PI;
 
-SDL_RenderCopyEx(getrenderer(), playerSprite, &src, &dest, 0, 0, SDL_FLIP_NONE);
+SDL_RenderCopyEx(getrenderer(), playerSprite, &src, &dest, angle, 0, SDL_FLIP_NONE);
 }
 
 void initializePlayer(void){
