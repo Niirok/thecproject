@@ -24,7 +24,21 @@ typedef struct Player {
 	int health, score, cdOra, cdYell, cdRed, cdNBlu, cdTur, cdGree, cdPur, cdPin, cdVio, viewX, viewY;
 
 	int active[9];
-}Player;
+}Player; 
+
+typedef struct Ennemy{
+
+	int health, int speed , Behaviour behaviour, Name name;
+
+}Ennemy; 
+
+typedef enum Behaviour{
+	linear, spiral, teleportation;
+}Behaviour;
+
+typedef enum Name{
+	circle, rectangle, octogone;
+}Name;
 
 typedef struct Shoot{
 	int dimension;// dimension of the shoot	
