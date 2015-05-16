@@ -41,7 +41,7 @@ SDL_RenderCopyEx(getrenderer(), playerSprite, &src, &dest, angle, 0, SDL_FLIP_NO
 void initializePlayer(void){
 	player.health = 100;
 	player.score = 0;
-	player.cdOra = 0;
+	player.cdOra = 0;player.active[0]=1;
 	player.cdYell=0;player.active[1]=0; 
 	player.cdRed=0;player.active[2]=0; 
 	player.cdNBlu=0; player.active[3]=0;
@@ -50,17 +50,20 @@ void initializePlayer(void){
 	player.cdPur=0; player.active[6]=0;
 	player.cdPin=0;player.active[7]=0;
 	player.cdVio=0;player.active[8]=0;
-	player.active[0]=1;
 	player.viewX = 0;
 	player.viewY = 0;
 }
 //player.active pourrait donner le niveau de la couleur
 void updatePlayer(Input* input){
+	if(player.cdOra > 0){
+			player.cdOra -= REDORA;
+	}else{player.cdOra =0;}
 	player.viewX = input->aimX;
 	player.viewY = input->aimY;
 	dimSwitch(input);
-	if(input->orange==1){
-		orangeShoot();//TODO dans prototype
+	if(input->orange==1 && player.cdOra == 0){
+		initializeNewShoot();//TODO dans prototype
+		player.cdOra = CDORA;
 	}
 //if(input->mute==1){/*mute le jeu*/}
 //if(input->pause==1){/*pause le jeu tant que cette valeur est de 1*/}

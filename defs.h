@@ -19,7 +19,10 @@
 #define PLR_Y 250
 #define PLAYER_WIDTH 40
 #define PLAYER_HEIGTH 50
-#define SHOOT_SPEED 40
-
+#define CDORA 800;
+#define REDORA 10;
+#define SHOOT_SPEED 8
+#define SHOOT_SIZE 8
+#define MAXSHOOT 14
  
 #endif

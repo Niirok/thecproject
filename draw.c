@@ -4,12 +4,16 @@
 Map* map;
 
 void drawGame(void){
+	int i;
+
 
 	// Affiche le fond (background) aux coordonnées (0,0)
 	drawImage(getBackground(), 0, 0);
-	
 	drawPlayer();
- 	drawTabShoot();
+	for (i = 0; i < getShootNbr(); i++){
+		drawShoot(getShoot(i));
+	}
+	
 	// Affiche l'écran
 	SDL_RenderPresent(getrenderer());
 

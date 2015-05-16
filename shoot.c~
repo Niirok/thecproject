@@ -1,28 +1,26 @@
 #include "prototypes.h"
 
-Shoot s;
+int shootNbr;
 Map map;
 Player player;
 SDL_Texture* shootSprite;
-Shoot* tabShoot[15];
-int firstIndex, lastIndex,currentIndex, isEmpty;
+Shoot tabShoot[MAXSHOOT];
 
-void initTabShoot(){
-		int i;
-		lastIndex = 0;
-		currentIndex = 0;
-		for(i=0;i<14;i++)
-				tabShoot[i]=NULL;
-		isEmpty=0;
-		//tabShoot=malloc(15*sizeof(Shoot));
-	}
+
+Shoot* getShoot(int i){
+	 return &tabShoot[i];
+}
+
+int getShootNbr(){
+	 return shootNbr;
+}
+
+void resetShoot(void){
+	shootNbr = 0;
+}
 
 void initShootSprite(void){
 	shootSprite = loadImage("shoot.png");
-}
-
-void shootFree(Shoot* s){
-	free(s);
 }
 
 void cleanShoot(void){
@@ -32,19 +30,68 @@ void cleanShoot(void){
 	}
 }
 
+void initializeNewShoot(){
+	if (shootNbr < MAXSHOOT){
+		tabShoot[shootNbr].dimension = map.activemap;
+		tabShoot[shootNbr].posX = PLR_X;
+		tabShoot[shootNbr].posY = PLR_Y;
+		/* Hauteur et largeur de notre monstre (rajouté dans les defs ;) ) */
+		//tabShoot[shootNbr].w = MONSTER_WIDTH;
+		//tabShoot[shootNbr].h = MONSTER_HEIGTH;
 
-void initializeShoot(Shoot* s){
-	s->dimension = map.activemap;
-	s->posX = PLR_X;
-	s->posY = PLR_Y;
-	
 	float Dx = player.viewX - PLR_X;
 	float Dy = player.viewY - PLR_Y; 
 	float angle = atan2f(Dy,Dx)*180/M_PI;
 
-	s->progressX = SHOOT_SPEED*cos(angle);
-	s->progressY = SHOOT_SPEED*sin(angle);
+	tabShoot[shootNbr].progressX = SHOOT_SPEED*cos(angle);
+	tabShoot[shootNbr].progressY = SHOOT_SPEED*sin(angle);
+	printf("nombre de missile : %d \n",shootNbr);
+	shootNbr++;
+
+ 
+	}
 }
+
+
+void updateShoot(){
+	int i;
+	for (i = 0; i < shootNbr; i++){//On passe en boucle tous les shoot du tableau
+		/*if (tabShoot[i].posX<510||tabShoot[i].posY<510){//gestion du tir hors cadre
+			//gestion de la disparition d'un sprite
+ 				}*/
+		
+	tabShoot[i].posX = tabShoot[i].posX + tabShoot[i].progressX;
+	tabShoot[i].posY = tabShoot[i].posY + tabShoot[i].progressY;
+ }
+}
+ 
+//On détecte les collisions avec les ennemis
+//if (collide(getShoot(), &monster[i]) == 1){//traitement}
+
+/* int collide(GameObject *player, GameObject *monster)
+{
+//On teste pour voir s'il n'y a pas collision, si c'est le cas, on renvoie 0
+if ((player->x >= monster->x + monster->w)
+|| (player->x + player->w <= monster->x)
+|| (player->y >= monster->y + monster->h)
+|| (player->y + player->h <= monster->y)
+)
+return 0;
+ 
+//Sinon, il y a collision. Si le joueur est au-dessus du monstre (avec une marge
+//de 10 pixels pour éviter les frustrations dues au pixel perfect), on renvoie 2.
+//On devra alors tuer le monstre et on fera rebondir le joueur.
+else if (player->y + player->h <= monster->y + 10)
+{
+player->dirY = -JUMP_HEIGHT;
+return 2;
+}
+ 
+//Sinon, on renvoie 1 et c'est le joueur qui meurt...
+else
+return 1;
+}
+*/ 
 
 void drawShoot(Shoot* s){
 
@@ -64,36 +111,27 @@ void drawShoot(Shoot* s){
 SDL_RenderCopyEx(getrenderer(), shootSprite, &src, &dest,0, 0, SDL_FLIP_NONE);
 }
 
-void drawTabShoot(){
-	int i;
-
-	for(i=0;i<14;i++){
-		if(tabShoot[i]!=NULL)
-			drawShoot(tabShoot[i]);
-		}
+/*void shootFree(Shoot* s){
+	free(s);
 }
+*/
 
-void updateShoot(Shoot* s){
-	if(isEmpty!=0){
-	s->posX = s->posX + s->progressX;
-	s->posY = s->posY + s->progressY;
-/*	s->posX = s->posX + s->progressX;
-	s->posY = s->posY+s->progressY;
-	if(s->posX <500 && s->posY<500)
-		shootFree(s);*/
-	}
-}
-void updateTabShoot(){
-	int i;
-
-	for(i=0;i<14;i++)
-		updateShoot(tabShoot[i]);
-	printf("je suce des grosses bites de poney");
-	fflush(stdin);
+/*
+void initializeShoot(Shoot* s){
+	s->dimension = map.activemap;
+	s->posX = PLR_X;
+	s->posY = PLR_Y;
 	
-}
-void orangeShoot(){
-	if(currentIndex <14){
+	float Dx = player.viewX - PLR_X;
+	float Dy = player.viewY - PLR_Y; 
+	float angle = atan2f(Dy,Dx)*180/M_PI;
+
+	s->progressX = SHOOT_SPEED*cos(angle);
+	s->progressY = SHOOT_SPEED*sin(angle);
+}*/
+
+/*void orangeShoot(){
+	if(shootNbr <MAXSHOOT){
 		Shoot* s;
 		s = malloc(sizeof(Shoot));
 		initializeShoot(s);
@@ -109,7 +147,7 @@ void orangeShoot(){
 		tabShoot[currentIndex] = s;
 		currentIndex++;
 	}
-}
+}*/
 
 
 

@@ -11,31 +11,26 @@ int main(int argc, char *argv[])
 {
     unsigned int frameLimit = SDL_GetTicks() + 16;
     int go;
+
+    init("Je suce des gnomes");// Initialisation de la SDL 
  
-    // Initialisation de la SDL 
-    init("Je suce des gnomes");
-		initializePlayer();
+	
+		loadGame();// Chargement des ressources (graphismes, sons)
+    initializePlayer();
 		initInputs(&input);
-		//initTabShoot();
-		 
-	// Chargement des ressources (graphismes, sons)
-		loadGame();
-    
-	// Appelle la fonction cleanup à la fin du programme 
-    atexit(cleanup);
+	
+    atexit(cleanup);// Appelle la fonction cleanup à la fin du programme 
  
     go = 1;
  
     // Boucle infinie, principale, du jeu 
     while (go == 1)
     {
-        //Gestion des inputs clavier
-        gestionInputs(&input);
+        gestionInputs(&input);//Gestion des inputs clavier
 				updatePlayer(&input);
-				updateTabShoot();
-
-        //On dessine tout
-        drawGame();
+				updateShoot();
+       
+        drawGame(); //On dessine tout
 
         // Gestion des 60 fps (1000ms/60 = 16.6 -> 16)
         delay(frameLimit);

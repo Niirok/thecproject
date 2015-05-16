@@ -83,12 +83,12 @@ void cleanup()
 	 //Nettoie les sprites de la map
 	cleanMaps();
 	cleanPlayer();
-
+	cleanShoot();
     //On quitte SDL_Mixer 2 et on décharge la mémoire
-    Mix_CloseAudio();
-    Mix_Quit();
+   Mix_CloseAudio();
+   Mix_Quit();
  
-    //On fait le ménage et on remet les pointeurs à NULL
+		//On fait le ménage et on remet les pointeurs à NULL
     SDL_DestroyRenderer(renderer);
     renderer = NULL;
     SDL_DestroyWindow(screen);
