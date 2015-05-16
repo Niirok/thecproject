@@ -148,7 +148,7 @@ void getInput(Input *input){
 										case SDLK_SPACE:
 											if(input->changeBack == 0){
                         input->changeBack = 1;
-											}
+											}else{input->changeBack =0;}
                     break;
  
                     default:
