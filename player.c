@@ -1,4 +1,5 @@
 #include "prototypes.h"
+#include <time.h>
 
 Player player;
 SDL_Texture* playerSprite;
@@ -51,6 +52,7 @@ void initializePlayer(void){
 	player.cdPin=0;player.active[7]=0;
 	player.cdVio=0;player.active[8]=0;
 	player.active[0]=1;
+<<<<<<< HEAD
 	player.viewX = 0;
 	player.viewY = 0;
 }
@@ -70,6 +72,24 @@ void updatePlayer(Input* input){
 //if(input->purple==1){/*nuke,check purple si disponible, activation*/}
 //if(input->pink==1){/*freeze total, check pink, si disponible, activation*/}
 //if(input->violet==1){/* invincible, check violet, si disponible, activation*/} 
+=======
+}//player.active pourrait donner le niveau de la couleur
+int maxAbs (int x, int y){
+	if(x<0){
+		x = -x;
+	}
+	if(y<0){
+		y = -y;
+	}
+	return (maxAbs=(x<y)? x : y);
+>>>>>>> AnthoShoot
 }
+void shoot(Player *player){
+	if (player.active[0]=1 && player->cdOra==0){
 
+<<<<<<< HEAD
 
+=======
+	}
+}
+>>>>>>> AnthoShoot

@@ -36,8 +36,7 @@ void getInput(Input *input){
             break;
             
             case SDL_MOUSEBUTTONDOWN:
-								switch (event.button.button)
-								{
+								switch (event.button.button){
 										case SDL_BUTTON_LEFT:
 											input->orange = 1;
 										break;
@@ -58,6 +57,7 @@ void getInput(Input *input){
 										break;
 								 }
 						break;
+<<<<<<< HEAD
 						/*case SDL_KEYUP:
             
                 switch (event.key.keysym.sym)
@@ -66,10 +66,51 @@ void getInput(Input *input){
                         input->changeBack = 0;
                     break;
 								}	*/
+=======
+						
+						case SDL_KEYUP:
+								switch (event.key.keysym.sym){
+ 
+                    case SDLK_a:
+                        input->yellow = 0;
+										break;
+ 
+                    case SDLK_q:
+                        input->navyblue = 0;
+                    break;
+ 
+                    case SDLK_s:
+                        input->turquoise = 0;
+                    break;
+ 
+                    case SDLK_d:
+                        input->green = 0;
+                    break;
+ 
+                    case SDLK_w:
+                        input->purple = 0;
+                    break;
+ 
+                    case SDLK_x:
+                        input->pink = 0;
+                    break;
+ 
+                    case SDLK_c:
+                        input->violet = 0;
+                    break;
+                    
+                    case SDLK_SPACE:
+                        input->changeBack = 0;
+                    break;
+                 
+                    default:
+                    break; 
+                  }  
+>>>>>>> AnthoShoot
             case SDL_KEYDOWN:
             
-                switch (event.key.keysym.sym)
-                {
+                switch (event.key.keysym.sym){
+                
                     case SDLK_ESCAPE:
                         exit(0);
                     break;
@@ -114,8 +155,13 @@ void getInput(Input *input){
                         }else{ input-> mute = 0;}
                     break;
  
+<<<<<<< HEAD
 										case SDLK_SPACE:
                         input->changeBack = 1;
+=======
+ 										case SDLK_SPACE:
+                        input->changeBack+=1;
+>>>>>>> AnthoShoot
                     break;
  
                     default:

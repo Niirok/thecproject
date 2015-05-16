@@ -37,7 +37,11 @@ typedef struct Shoot{
 
 /*début des fonctions de la structure shoot*/
 
+<<<<<<< HEAD
 Shoot shoot(int x, int y);
+=======
+shoot shoot(int x, int y);
+>>>>>>> AnthoShoot
 int maxAbs (int x, int y); 
 #endif
 
