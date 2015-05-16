@@ -19,6 +19,7 @@
 #define PLR_Y 250
 #define PLAYER_WIDTH 40
 #define PLAYER_HEIGTH 50
+#define SHOOT_SPEED 40
 
  
 #endif

@@ -2,9 +2,10 @@
 #include <SDL2/SDL.h>
  
 /* Déclaration des variables / structures utilisées par le jeu */
- Input input;
- Player player;
- 
+	Input input;
+	Player player;
+	Shoot* tabShoot[15];
+ 	int firstIndex, lastIndex,currentIndex;
  
 int main(int argc, char *argv[])
 {
@@ -15,7 +16,8 @@ int main(int argc, char *argv[])
     init("Je suce des gnomes");
 		initializePlayer();
 		initInputs(&input);
- 
+		//initTabShoot();
+		 
 	// Chargement des ressources (graphismes, sons)
 		loadGame();
     
@@ -30,6 +32,7 @@ int main(int argc, char *argv[])
         //Gestion des inputs clavier
         gestionInputs(&input);
 				updatePlayer(&input);
+				updateTabShoot();
 
         //On dessine tout
         drawGame();

@@ -1,8 +1,8 @@
 #include "prototypes.h"
-#include <time.h>
 
 Player player;
 SDL_Texture* playerSprite;
+Shoot tabShoot[15];
 
 void initPlayerSprite(void){
 	playerSprite = loadImage("spaceship.png");
@@ -19,7 +19,6 @@ void drawPlayer(){
 	
 	float Dx = player.viewX - PLR_X;
 	float Dy = player.viewY - PLR_Y; 
-	float alpha = Dy/Dx;
 	float angle;
 
 	SDL_Rect src;
@@ -52,7 +51,6 @@ void initializePlayer(void){
 	player.cdPin=0;player.active[7]=0;
 	player.cdVio=0;player.active[8]=0;
 	player.active[0]=1;
-<<<<<<< HEAD
 	player.viewX = 0;
 	player.viewY = 0;
 }
@@ -61,7 +59,9 @@ void updatePlayer(Input* input){
 	player.viewX = input->aimX;
 	player.viewY = input->aimY;
 	dimSwitch(input);
-//if(input->orange==1){/*gerer le tir en fonction de la couleur jaune ou orange*/}
+	if(input->orange==1){
+		orangeShoot();//TODO dans prototype
+	}
 //if(input->mute==1){/*mute le jeu*/}
 //if(input->pause==1){/*pause le jeu tant que cette valeur est de 1*/}
 //if(input->yellow==1){/*laser,check jaune, si disponible, activation*/}
@@ -72,24 +72,5 @@ void updatePlayer(Input* input){
 //if(input->purple==1){/*nuke,check purple si disponible, activation*/}
 //if(input->pink==1){/*freeze total, check pink, si disponible, activation*/}
 //if(input->violet==1){/* invincible, check violet, si disponible, activation*/} 
-=======
 }//player.active pourrait donner le niveau de la couleur
-int maxAbs (int x, int y){
-	if(x<0){
-		x = -x;
-	}
-	if(y<0){
-		y = -y;
-	}
-	return (maxAbs=(x<y)? x : y);
->>>>>>> AnthoShoot
-}
-void shoot(Player *player){
-	if (player.active[0]=1 && player->cdOra==0){
 
-<<<<<<< HEAD
-
-=======
-	}
-}
->>>>>>> AnthoShoot

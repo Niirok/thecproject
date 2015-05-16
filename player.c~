@@ -2,6 +2,7 @@
 
 Player player;
 SDL_Texture* playerSprite;
+Shoot tabShoot[15];
 
 void initPlayerSprite(void){
 	playerSprite = loadImage("spaceship.png");
@@ -18,7 +19,6 @@ void drawPlayer(){
 	
 	float Dx = player.viewX - PLR_X;
 	float Dy = player.viewY - PLR_Y; 
-	float alpha = Dy/Dx;
 	float angle;
 
 	SDL_Rect src;
@@ -33,7 +33,7 @@ void drawPlayer(){
 	dest.y =PLR_Y-20;//(src.h/2);
 	dest.w = 55; 
 	dest.h = 41;
-	angle = atanf2(Dy,Dx)*180/M_PI;
+	angle = atan2f(Dy,Dx)*180/M_PI;
 
 SDL_RenderCopyEx(getrenderer(), playerSprite, &src, &dest, angle, 0, SDL_FLIP_NONE);
 }
@@ -59,7 +59,11 @@ void updatePlayer(Input* input){
 	player.viewX = input->aimX;
 	player.viewY = input->aimY;
 	dimSwitch(input);
-//if(input->orange==1){/*gerer le tir en fonction de la couleur jaune ou orange*/}
+	if(input->orange==1){
+		printf("caca")
+		orangeShoot();//TODO dans prototype
+		;
+	}
 //if(input->mute==1){/*mute le jeu*/}
 //if(input->pause==1){/*pause le jeu tant que cette valeur est de 1*/}
 //if(input->yellow==1){/*laser,check jaune, si disponible, activation*/}
@@ -70,6 +74,5 @@ void updatePlayer(Input* input){
 //if(input->purple==1){/*nuke,check purple si disponible, activation*/}
 //if(input->pink==1){/*freeze total, check pink, si disponible, activation*/}
 //if(input->violet==1){/* invincible, check violet, si disponible, activation*/} 
-}
-
+}//player.active pourrait donner le niveau de la couleur
 

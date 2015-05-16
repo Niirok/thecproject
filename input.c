@@ -57,16 +57,6 @@ void getInput(Input *input){
 										break;
 								 }
 						break;
-<<<<<<< HEAD
-						/*case SDL_KEYUP:
-            
-                switch (event.key.keysym.sym)
-                {
-                    case SDLK_SPACE:
-                        input->changeBack = 0;
-                    break;
-								}	*/
-=======
 						
 						case SDL_KEYUP:
 								switch (event.key.keysym.sym){
@@ -106,7 +96,7 @@ void getInput(Input *input){
                     default:
                     break; 
                   }  
->>>>>>> AnthoShoot
+
             case SDL_KEYDOWN:
             
                 switch (event.key.keysym.sym){
@@ -155,13 +145,10 @@ void getInput(Input *input){
                         }else{ input-> mute = 0;}
                     break;
  
-<<<<<<< HEAD
 										case SDLK_SPACE:
+											if(input->changeBack == 0){
                         input->changeBack = 1;
-=======
- 										case SDLK_SPACE:
-                        input->changeBack+=1;
->>>>>>> AnthoShoot
+											}else{input->changeBack =0;}
                     break;
  
                     default:

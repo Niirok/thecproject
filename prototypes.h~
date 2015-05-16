@@ -8,20 +8,27 @@
  
 extern void cleanMaps(void);
 extern void cleanup(void);
+extern void cleanPlayer(void);
+extern void cleanShoot(void);
 extern void delay(unsigned int frameLimit);
+extern void dimSwitch(Input *input);
 extern void drawGame(void);
 extern void drawImage(SDL_Texture *image, int x, int y);
 extern void drawMap(void);
-extern void dimSwitch(Input *input);
+extern void drawTabShoot(void);
+extern void updateTabShoot(void);
+extern void drawShoot();
 extern void gestionInputs(Input *input);
 extern void getInput(Input *input);
+extern void orangeShoot(void);
 extern void init(char *);
 extern void initInputs(Input* i);
 extern void initMaps(void);
-extern void initPlayerSprite(void);
 extern void initializePlayer(void);
+extern void initializeShoot(Shoot* s);
+extern void initPlayerSprite(void);
 extern void loadGame(void);
-extern SDL_Renderer *getrenderer(void); //todo corrigé le place * dans le pointeur
+extern SDL_Renderer *getrenderer(void); 
 extern SDL_Texture* getBackground();
 extern SDL_Texture* loadImage(char* name);
 extern void updatePlayer(Input *input);

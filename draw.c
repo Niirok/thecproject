@@ -9,7 +9,7 @@ void drawGame(void){
 	drawImage(getBackground(), 0, 0);
 	
 	drawPlayer();
- 
+ 	drawTabShoot();
 	// Affiche l'écran
 	SDL_RenderPresent(getrenderer());
 

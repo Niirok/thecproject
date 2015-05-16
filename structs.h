@@ -28,20 +28,11 @@ typedef struct Player {
 
 typedef struct Shoot{
 	int dimension;// dimension of the shoot	
-	const int speed;
 	int posX;
 	int posY;
 	int progressX;
 	int progressY;
 }Shoot;
 
-/*début des fonctions de la structure shoot*/
-
-<<<<<<< HEAD
-Shoot shoot(int x, int y);
-=======
-shoot shoot(int x, int y);
->>>>>>> AnthoShoot
-int maxAbs (int x, int y); 
 #endif
 

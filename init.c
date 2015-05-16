@@ -74,6 +74,7 @@ void init(char *title)
 void loadGame(void) {
 	initMaps();//On charge les données pour la map
 	initPlayerSprite();
+	initShootSprite();
 }
 
  
