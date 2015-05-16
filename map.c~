@@ -15,11 +15,11 @@ void dimSwitch(Input *input){
 	if (input->changeBack == 1){
 		if(map.activemap == 1){
 				map.activemap = 2;
-				//input-> changeBack = 0;
+				input-> changeBack = 0;
 		}else{ 
 				if(map.activemap == 2){
 				map.activemap = 1;
-				//input-> changeBack = 0;
+				input-> changeBack = 0;
 			}
 		}
 	}
