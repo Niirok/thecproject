@@ -40,12 +40,13 @@ void initializeNewShoot(){
 		//tabShoot[shootNbr].h = MONSTER_HEIGTH;
 
 	float Dx = player.viewX - PLR_X;
-	float Dy = player.viewY - PLR_Y; 
-	float angle = atan2f(Dy,Dx)*180/M_PI;
+	float Dy = player.viewY - PLR_Y;
+	float angle = atan2f(Dy,Dx);
 
 	tabShoot[shootNbr].progressX = SHOOT_SPEED*cos(angle);
 	tabShoot[shootNbr].progressY = SHOOT_SPEED*sin(angle);
 	printf("nombre de missile : %d \n",shootNbr);
+	printf("angle en radian: %f \n",angle);
 	shootNbr++;
 	if(shootNbr==MAXSHOOT){
 		shootNbr =0;	
