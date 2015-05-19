@@ -16,7 +16,7 @@ extern void drawGame(void);
 extern void drawImage(SDL_Texture *image, int x, int y);
 extern void drawMap(void);
 extern void drawShoot(Shoot* s);
-extern void updateShoot(void);
+extern void updateShoot(sList list);
 extern void gestionInputs(Input *input);
 extern void getInput(Input *input);
 extern void init(char *);
@@ -34,5 +34,6 @@ extern void updatePlayer(Input *input);
 extern Shoot* getShoot(int i);
 extern int getShootNbr(void);
 extern void resetShoot(void);
+extern sList headAddShoot(sList list);
  
 #endif

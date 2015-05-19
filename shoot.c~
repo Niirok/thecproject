@@ -41,13 +41,12 @@ void initializeNewShoot(){
 
 	float Dx = player.viewX - PLR_X;
 	float Dy = player.viewY - PLR_Y;
-	float anglerad = atan2f(Dy,Dx);
-	float angledeg = anglerad*180/M_PI;
+	float angle = atan2f(Dy,Dx);
 
-	tabShoot[shootNbr].progressX = SHOOT_SPEED*cos(anglerad);
-	tabShoot[shootNbr].progressY = SHOOT_SPEED*sin(anglerad);
+	tabShoot[shootNbr].progressX = SHOOT_SPEED*cos(angle);
+	tabShoot[shootNbr].progressY = SHOOT_SPEED*sin(angle);
 	printf("nombre de missile : %d \n",shootNbr);
-	printf("angle en radian: %f \n",anglerad);
+	printf("angle en radian: %f \n",angle);
 	shootNbr++;
 	if(shootNbr==MAXSHOOT){
 		shootNbr =0;	
@@ -65,11 +64,12 @@ void updateShoot(){
 		
 	tabShoot[i].posX = tabShoot[i].posX + tabShoot[i].progressX;
 	tabShoot[i].posY = tabShoot[i].posY + tabShoot[i].progressY;
+	//On détecte les collisions avec les ennemis
+	//if (collide(getShoot(), &monster[i]) == 1){//traitement}
  }
 }
  
-//On détecte les collisions avec les ennemis
-//if (collide(getShoot(), &monster[i]) == 1){//traitement}
+
 
 /* int collide(GameObject *player, GameObject *monster)
 {
@@ -101,15 +101,15 @@ void drawShoot(Shoot* s){
 	SDL_Rect src;
 	src.x = 0;
 	src.y = 0;
-	src.w = 8;
-	src.h = 8;
+	src.w = SHOOT_SIZE;
+	src.h = SHOOT_SIZE;
 	
 	
 	SDL_Rect dest;
 	dest.x = s->posX;
 	dest.y = s->posY;
-	dest.w = 8; 
-	dest.h = 8;
+	dest.w = SHOOT_SIZE; 
+	dest.h = SHOOT_SIZE;
 
 SDL_RenderCopyEx(getrenderer(), shootSprite, &src, &dest,0, 0, SDL_FLIP_NONE);
 }

@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
         gestionInputs(&input);//Gestion des inputs clavier
 				updatePlayer(&input);
 				updateShoot();
-
        
         drawGame(); //On dessine tout
 

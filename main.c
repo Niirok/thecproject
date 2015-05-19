@@ -4,7 +4,7 @@
 /* Déclaration des variables / structures utilisées par le jeu */
 	Input input;
 	Player player;
-	Shoot* tabShoot[15];
+	sList tabShoot=NULL;
  	int firstIndex, lastIndex,currentIndex;
  
 int main(int argc, char *argv[])
@@ -28,8 +28,8 @@ int main(int argc, char *argv[])
     {
         gestionInputs(&input);//Gestion des inputs clavier
 				updatePlayer(&input);
-				updateShoot();
-       
+				updateShoot(tabShoot);
+      	
         drawGame(); //On dessine tout
 
         // Gestion des 60 fps (1000ms/60 = 16.6 -> 16)

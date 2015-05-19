@@ -9,18 +9,12 @@ void drawGame(void){
 
 	// Affiche le fond (background) aux coordonnées (0,0)
 	drawImage(getBackground(), 0, 0);
-	
+	for (i = 0; i < getShootNbr(); i++){
+		drawShoot(getShoot(i));
+	}
 	drawPlayer();
-	 for (i = 0; i < getShootNbr(); i++)
-{
-drawMonster(getMonster(i));
-}
-	
-	// Affiche l'écran
-	SDL_RenderPresent(getrenderer());
-
-   // Délai pour laisser respirer le proc
-   SDL_Delay(1);
+	SDL_RenderPresent(getrenderer());// Affiche l'écran
+  SDL_Delay(1);// Délai pour laisser respirer le proc
 }
 
 SDL_Texture* loadImage(char* name) {

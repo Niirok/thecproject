@@ -1,22 +1,27 @@
 #include "prototypes.h"
 
-int shootNbr;
 Map map;
 Player player;
 SDL_Texture* shootSprite;
-Shoot tabShoot[MAXSHOOT];
+sList tabShoot;
 
+sList deleteTail(sList list){
+	if (list== NULL)
+		return NULL;
+	if(list->next ==NULL){
+		free(list);
+		return NULL;
+	}
+	Shoot* tmp = list;
+	Shoot* ptmp = list;
 
-Shoot* getShoot(int i){
-	 return &tabShoot[i];
-}
-
-int getShootNbr(){
-	 return shootNbr;
-}
-
-void resetShoot(void){
-	shootNbr = 0;
+	while(tmp->next !=NULL){
+		ptmp = tmp;
+		tmp = tmp->next;
+	}
+	ptmp->next = NULL;
+	free (tmp);
+	return list;
 }
 
 void initShootSprite(void){
@@ -27,48 +32,24 @@ void cleanShoot(void){
 	if(shootSprite != NULL){
 		SDL_DestroyTexture(shootSprite);
 		shootSprite = NULL;
-	}
+	} 
 }
 
-void initializeNewShoot(){
-	if (shootNbr < MAXSHOOT){
-		tabShoot[shootNbr].dimension = map.activemap;
-		tabShoot[shootNbr].posX = PLR_X;
-		tabShoot[shootNbr].posY = PLR_Y;
-		/* Hauteur et largeur de notre monstre (rajouté dans les defs ;) ) */
-		//tabShoot[shootNbr].w = MONSTER_WIDTH;
-		//tabShoot[shootNbr].h = MONSTER_HEIGTH;
-
-	float Dx = player.viewX - PLR_X;
-	float Dy = player.viewY - PLR_Y;
-	float angle = atan2f(Dy,Dx);
-
-	tabShoot[shootNbr].progressX = SHOOT_SPEED*cos(angle);
-	tabShoot[shootNbr].progressY = SHOOT_SPEED*sin(angle);
-	printf("nombre de missile : %d \n",shootNbr);
-	printf("angle en radian: %f \n",angle);
-	shootNbr++;
-	if(shootNbr==MAXSHOOT){
-		shootNbr =0;	
-	}
+void updateShoot(sList list){
+	Shoot* first = list;	
+	Shoot* s = list;
+	while(s != NULL){
+		s->lifetime-=1;
+		s->posX+=s->progressX;
+		s->posY+=s->progressY;
+		//if (collide(getShoot(), &monster[i]) == 1){//traitement}
+		if(s->lifetime == 0){
+			printf("nombre de missile --");
+			tabShoot = deleteTail(tabShoot);
+		}
+		s = s->next;
 	}
 }
-
-
-void updateShoot(){
-	int i;
-	for (i = 0; i < shootNbr; i++){//On passe en boucle tous les shoot du tableau
-		/*if (tabShoot[i].posX<510||tabShoot[i].posY<510){//gestion du tir hors cadre
-			//gestion de la disparition d'un sprite
- 				}*/
-		
-	tabShoot[i].posX = tabShoot[i].posX + tabShoot[i].progressX;
-	tabShoot[i].posY = tabShoot[i].posY + tabShoot[i].progressY;
- }
-}
- 
-//On détecte les collisions avec les ennemis
-//if (collide(getShoot(), &monster[i]) == 1){//traitement}
 
 /* int collide(GameObject *player, GameObject *monster)
 {
@@ -95,61 +76,44 @@ return 1;
 }
 */ 
 
-void drawShoot(Shoot* s){
-
-	SDL_Rect src;
-	src.x = 0;
-	src.y = 0;
-	src.w = 8;
-	src.h = 8;
+void drawShoot(sList list){
+	Shoot* s = list;
+	while(s != NULL){
+		SDL_Rect src;
+		src.x = 0;
+		src.y = 0;
+		src.w = SHOOT_SIZE;
+		src.h = SHOOT_SIZE;
 	
 	
-	SDL_Rect dest;
-	dest.x = s->posX;
-	dest.y = s->posY;
-	dest.w = 8; 
-	dest.h = 8;
+		SDL_Rect dest;
+		dest.x = s->posX;
+		dest.y = s->posY;
+		dest.w = SHOOT_SIZE; 
+		dest.h = SHOOT_SIZE;
 
-SDL_RenderCopyEx(getrenderer(), shootSprite, &src, &dest,0, 0, SDL_FLIP_NONE);
+		SDL_RenderCopyEx(getrenderer(), shootSprite, &src, &dest,0, 0, SDL_FLIP_NONE);
+		s=s->next;
+	}	
 }
 
-/*void shootFree(Shoot* s){
+void shootFree(Shoot* s){
 	free(s);
 }
-*/
 
-/*
-void initializeShoot(Shoot* s){
+sList headAddShoot(sList list){
+
+	float Dx = player.viewX - PLR_X;
+	float Dy = player.viewY - PLR_Y;
+	float angle = atan2f(Dy,Dx);
+	Shoot* s = malloc(sizeof(Shoot));
 	s->dimension = map.activemap;
 	s->posX = PLR_X;
 	s->posY = PLR_Y;
-	
-	float Dx = player.viewX - PLR_X;
-	float Dy = player.viewY - PLR_Y; 
-	float angle = atan2f(Dy,Dx)*180/M_PI;
-
 	s->progressX = SHOOT_SPEED*cos(angle);
 	s->progressY = SHOOT_SPEED*sin(angle);
-}*/
-
-/*void orangeShoot(){
-	if(shootNbr <MAXSHOOT){
-		Shoot* s;
-		s = malloc(sizeof(Shoot));
-		initializeShoot(s);
-		tabShoot[currentIndex] = s;
-		currentIndex++;
-		isEmpty=1;
-
-	}else{
-		currentIndex = 0;
-		Shoot* s;
-		s=malloc(sizeof(Shoot));
-		initializeShoot(s);
-		tabShoot[currentIndex] = s;
-		currentIndex++;
-	}
-}*/
-
-
+	s->lifetime = SHOOT_LIFETIME;
+	s->next = list;
+	return s;
+}
 

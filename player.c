@@ -2,7 +2,7 @@
 
 Player player;
 SDL_Texture* playerSprite;
-Shoot tabShoot[15];
+sList tabShoot;
 
 void initPlayerSprite(void){
 	playerSprite = loadImage("spaceship.png");
@@ -24,15 +24,15 @@ void drawPlayer(){
 	SDL_Rect src;
 	src.x = 0;
 	src.y = 0;
-	src.w = 55;
-	src.h = 41;
+	src.w = PLAYER_WIDTH;
+	src.h = PLAYER_HEIGTH;
 	
 	
 	SDL_Rect dest;
 	dest.x =PLR_X-(src.w/2);
-	dest.y =PLR_Y-20;//(src.h/2);
-	dest.w = 55; 
-	dest.h = 41;
+	dest.y =PLR_Y-(src.h/2);
+	dest.w = PLAYER_WIDTH; 
+	dest.h = PLAYER_HEIGTH;;
 	angle = atan2f(Dy,Dx)*180/M_PI;
 
 SDL_RenderCopyEx(getrenderer(), playerSprite, &src, &dest, angle, 0, SDL_FLIP_NONE);
@@ -62,7 +62,8 @@ void updatePlayer(Input* input){
 	player.viewY = input->aimY;
 	dimSwitch(input);
 	if(input->orange==1 && player.cdOra == 0){
-		initializeNewShoot();//TODO dans prototype
+		tabShoot = headAddShoot(tabShoot);
+		printf("nombre de missile +1");
 		player.cdOra = CDORA;
 	}
 //if(input->mute==1){/*mute le jeu*/}

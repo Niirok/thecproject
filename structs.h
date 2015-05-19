@@ -32,7 +32,11 @@ typedef struct Shoot{
 	int posY;
 	int progressX;
 	int progressY;
+	int lifetime;
+	struct Shoot* next;
 }Shoot;
+
+typedef Shoot* sList;
 
 #endif
 
