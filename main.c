@@ -4,7 +4,7 @@
 /* Déclaration des variables / structures utilisées par le jeu */
  Input input;
  Player player;
- 
+ eList enlist;
  
 int main(int argc, char *argv[])
 {
@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
  
     // Initialisation de la SDL 
     init("Je suce des gnomes");
+		enlist = headAddEnneny(enlist);
 		//initInputs(&input);
  
 	// Chargement des ressources (graphismes, sons)
@@ -29,17 +30,14 @@ int main(int argc, char *argv[])
         //Gestion des inputs clavier
         gestionInputs(&input);
 				updatePlayer(&input);
+				updateEnnemy(enlist);
 
         //On dessine tout
         drawGame();
-		//updateEnnemy(Ennemy* ennemy);
 
         // Gestion des 60 fps (1000ms/60 = 16.6 -> 16)
         delay(frameLimit);
         frameLimit = SDL_GetTicks() + 16;
     }
- 
-    // On quitte
     exit(0);
- 
 }

@@ -2,12 +2,14 @@
 #include <SDL2/SDL.h>
 
 Map* map;
+eList enlist;
 
 void drawGame(void){
 
 	// Affiche le fond (background) aux coordonnées (0,0)
 	drawImage(getBackground(), 0, 0);
- 
+ 	drawEnnemy(enlist);
+
 	// Affiche l'écran
 	SDL_RenderPresent(getrenderer());
  	SDL_RenderClear(getrenderer());
@@ -60,18 +62,12 @@ void delay(unsigned int frameLimit){
 	// Gestion des 60 fps (images/stories/seconde)
     unsigned int ticks = SDL_GetTicks();
  
-    if (frameLimit < ticks)
-    {
+    if (frameLimit < ticks){
         return;
     }
- 
-    if (frameLimit > ticks + 16)
-    {
+    if (frameLimit > ticks + 16){
         SDL_Delay(16);
-    }
- 
-    else
-    {
+    }else{
         SDL_Delay(frameLimit - ticks);
     }
 }

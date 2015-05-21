@@ -2,16 +2,18 @@
 #include <SDL2/SDL.h>
 
 Map* map;
+eList enlist;
 
 void drawGame(void){
 
 	// Affiche le fond (background) aux coordonnées (0,0)
 	drawImage(getBackground(), 0, 0);
- 
+ 	drawEnnemy(enlist);
+
 	// Affiche l'écran
 	SDL_RenderPresent(getrenderer());
  	SDL_RenderClear(getrenderer());
-	//SDL_RenderPresent(getrenderer());
+	//SDL_RenderPresent(getrenderer());--> savoir à quoi cette fonction sert
     // Délai pour laisser respirer le proc
     SDL_Delay(1);
 }

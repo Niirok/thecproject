@@ -31,12 +31,22 @@ typedef enum Name{
 }Name;
 
 typedef struct Ennemy{
-
-	int health, speed, posX, posY;
+	
 	Name name;
+	int dimension;
+	int speed;
+	int posX;
+	int posY;
+	int progressX;
+	int progressY;
+	int timer;
+	int appAngle;
+	int appRadius;
 
-}Ennemy; 
+	struct Ennemy* next;
+}Ennemy;
 
+typedef Ennemy* eList;//liste chainée d'ennemis
 
 typedef struct Shoot{
 	int dimension;// dimension of the shoot	
@@ -47,9 +57,5 @@ typedef struct Shoot{
 	int progressY;
 }Shoot;
 
-/*début des fonctions de la structure shoot*/
-
-Shoot shootOrange(int dim, int x, int y);
-int maxAbs (int x, int y); 
 #endif
 

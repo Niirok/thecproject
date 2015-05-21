@@ -12,8 +12,8 @@ Ennemy* createEnnemy(Name name){
 	e -> appRadius = RADIUS;
 	e -> appAngle = 42;
 	e -> timer = TIMER;
-	e -> posX = PLR_X + RADIUS*cos(e->appAngle);
-	e -> posY = PLR_Y + RADIUS*sin(e->appAngle);
+	e -> posX = RADIUS*cos(e->appAngle);
+	e -> posY = RADIUS*sin(e->appAngle);
 	e -> progressX = (e->speed)*cos(e->appAngle);
 	e -> progressY =(e->speed)*sin(e->appAngle);	
 	return e;

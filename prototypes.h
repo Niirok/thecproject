@@ -11,6 +11,7 @@ extern void cleanup(void);
 extern Ennemy* createEnnemy(Name name);
 extern void delay(unsigned int frameLimit);
 extern void deleteEnnemy(Ennemy* ennemy);
+extern void drawEnnemy(eList list);
 extern void drawGame(void);
 extern void drawImage(SDL_Texture *image, int x, int y);
 extern void drawMap(void);
@@ -25,7 +26,7 @@ extern void loadGame(void);
 extern SDL_Renderer *getrenderer(void); //todo corrigé le place * dans le pointeur
 extern SDL_Texture* getBackground();
 extern SDL_Texture* loadImage(char* name);
-extern void updateEnnemy(Ennemy* ennemy);
+extern void updateEnnemy(eList list);
 extern void updatePlayer(Input *input);
  
 #endif

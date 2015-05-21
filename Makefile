@@ -20,7 +20,7 @@ main.o : main.c prototypes.h
 map.o  : map.c prototypes.h
 	gcc -c  map.c -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image
 
-ennemy.o :ennemy.c prototypes.h
+ennemy.o : ennemy.c prototypes.h
 	gcc -c ennemy.c
 
 clean:

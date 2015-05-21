@@ -22,7 +22,7 @@
 #define PLAYER_WIDTH 40
 #define PLAYER_HEIGTH 50
 
-#define TIMER 180
+#define TIMER 3
 #define RADIUS 370
 
 //Nombre max de monstres à l'écran

@@ -7,7 +7,7 @@
 
 typedef struct Input{ // Structure pour gérer l'input clavier
 
-    int orange, yellow, red, navyblue, turquoise, green, purple,pink,violet,pause,mute,changeBack,aimx, aimy;
+    int orange, yellow, red, navyblue, turquoise, green, purple,pink,violet,pause,mute,changeBack,aimX, aimY;
 }Input;
 
 
@@ -24,7 +24,37 @@ typedef struct Player {
 	int health, score, cdOra, cdYell, cdRed, cdNBlu, cdTur, cdGree, cdPur, cdPin, cdVio, viewX, viewY;
 
 	int active[9];
-}Player;
+}Player; 
+
+typedef enum Name{
+	octogone, rectangle, cross
+}Name;
+
+typedef struct Ennemy{
+	
+	Name name;
+	int speed;
+	int posX;
+	int posY;
+	int progressX;
+	int progressY;
+	int timer;
+	int appAngle;
+	int appRadius;
+
+	struct Ennemy* next;
+}Ennemy;
+
+typedef Ennemy* eList;//liste chainée d'ennemis
+
+typedef struct Shoot{
+	int dimension;// dimension of the shoot	
+	const int speed;
+	int posX;
+	int posY;
+	int progressX;
+	int progressY;
+}Shoot;
 
 #endif
 
