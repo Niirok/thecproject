@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 #include <SDL2/SDL.h>
  
 /* On inclut les libs supplémentaires */
@@ -24,6 +25,7 @@
 
 #define TIMER 180
 #define RADIUS 370
+#define ENEMY_SPEED_BASE 2
 
 //Nombre max de monstres à l'écran
 #define MONSTRES_MAX 50

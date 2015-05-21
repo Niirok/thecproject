@@ -4,18 +4,26 @@ Ennemy ennemy;
 eList ennList; 
 SDL_Texture* ennemiSprite;
 
+double randspeed(){
+	return (rand()/(double)RAND_MAX)*(1.15-0.85)+0.85;
+}
+
+int randAngle(){
+	return rand()%360;
+}
+
 Ennemy* createEnnemy(Name name){
 	Ennemy* e=malloc(sizeof(Ennemy));
 	e-> dimension = 1;//randomiser
-	e -> speed=10;//randomiser le resultat
+	e -> speed=(double)ENEMY_SPEED_BASE*randspeed();
 	e -> name=name;
 	e -> appRadius = RADIUS;
-	e -> appAngle = 42;
+	e -> appAngle = randAngle()*2*M_PI/360;
 	e -> timer = TIMER;
-	e -> posX = PLR_X + RADIUS*cos(e->appAngle);
-	e -> posY = PLR_Y + RADIUS*sin(e->appAngle);
-	e -> progressX = (e->speed)*cos(e->appAngle);
-	e -> progressY =(e->speed)*sin(e->appAngle);	
+	e -> posX = (double)PLR_X + RADIUS*cos(e->appAngle);
+	e -> posY = (double)PLR_Y + RADIUS*sin(e->appAngle);
+	e -> progressX = (double)(e->speed)*cos(e->appAngle);
+	e -> progressY =(double)(e->speed)*sin(e->appAngle);	
 	return e;
 }
 
@@ -23,7 +31,6 @@ eList headAddEnneny(eList list){
 	Ennemy* e = malloc(sizeof(Ennemy));
 	e = createEnnemy(octogone);
 	e ->next = list;
-	printf("prout");
 	return e;
 }
 

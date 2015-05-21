@@ -33,6 +33,7 @@ typedef enum Name{
 typedef struct Ennemy{
 	
 	Name name;
+	int dimension;
 	int speed;
 	int posX;
 	int posY;

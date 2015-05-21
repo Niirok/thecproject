@@ -1,19 +1,19 @@
 #include "prototypes.h"
 #include <SDL2/SDL.h>
  
-/* Déclaration des variables / structures utilisées par le jeu */
- Input input;
- Player player;
- eList enlist;
- 
-int main(int argc, char *argv[])
-{
-    unsigned int frameLimit = SDL_GetTicks() + 16;
-    int go;
- 
-    // Initialisation de la SDL 
-    init("Je suce des gnomes");
-		enlist = headAddEnneny(enlist);
+Input input;
+Player player;
+eList enlist; 
+
+int main(int argc, char *argv[]){
+    
+	unsigned int frameLimit = SDL_GetTicks() + 16;
+	int go;
+	srand(time(NULL));
+	
+	// Initialisation de la SDL 
+	init("Je suce des gnomes");
+	enlist = headAddEnneny(enlist);
 		//initInputs(&input);
  
 	// Chargement des ressources (graphismes, sons)
