@@ -25,7 +25,7 @@
 
 #define TIMER 180
 #define RADIUS 370
-#define ENEMY_SPEED_BASE 2
+#define ENEMY_SPEED_BASE 0.5
 
 //Nombre max de monstres à l'écran
 #define MONSTRES_MAX 50

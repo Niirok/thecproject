@@ -34,11 +34,11 @@ typedef struct Ennemy{
 	
 	Name name;
 	int dimension;
-	int speed;
-	int posX;
-	int posY;
-	int progressX;
-	int progressY;
+	double speed;
+	double posX;
+	double posY;
+	double progressX;
+	double progressY;
 	int timer;
 	int appAngle;
 	int appRadius;
