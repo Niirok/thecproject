@@ -14,6 +14,7 @@ int main(int argc, char *argv[]){
 	// Initialisation de la SDL 
 	init("Je suce des gnomes");
 	enlist = headAddEnneny(enlist);
+	enlist = headAddEnneny(enlist);
 	//enlist = deleteEn(getEnnemy (enlist,0), enlist);
 		//initInputs(&input);
  
