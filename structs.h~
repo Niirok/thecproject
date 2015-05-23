@@ -59,10 +59,6 @@ typedef struct Shoot{
 	struct Shoot* next;
 }Shoot;
 
-<<<<<<< HEAD
 typedef Shoot* sList;
-
-=======
->>>>>>> AlexDrAW
 #endif
 

@@ -60,6 +60,5 @@ typedef struct Shoot{
 }Shoot;
 
 typedef Shoot* sList;
-
 #endif
 
