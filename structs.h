@@ -34,6 +34,7 @@ typedef struct Ennemy{
 	
 	Name name;
 	int dimension;
+	int lifetime;
 	double speed;
 	double posX;
 	double posY;

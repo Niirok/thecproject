@@ -40,7 +40,7 @@ typedef struct Ennemy{
 	double progressX;
 	double progressY;
 	int timer;
-	int appAngle;
+	double appAngle;
 	int appRadius;
 
 	struct Ennemy* next;

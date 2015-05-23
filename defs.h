@@ -24,6 +24,7 @@
 #define PLAYER_HEIGTH 50
 
 #define TIMER 180
+#define MONSTER_LIFETIME 1200
 #define RADIUS 370
 #define ENEMY_SPEED_BASE 0.5
 

@@ -13,14 +13,19 @@ double randAngle(){
 	return (rand()%360)*2*M_PI/360;
 }
 
+int randDim(){
+	return (rand()%2)+1;
+}
+
 Ennemy* createEnnemy(Name name){
 	Ennemy* e=malloc(sizeof(Ennemy));
-	e-> dimension = 1;//randomiser
+	e-> dimension = randDim();
 	e -> speed=(double)ENEMY_SPEED_BASE*randspeed();
 	e -> name=name;
 	e -> appRadius = RADIUS;
 	e -> appAngle = randAngle();
 	e -> timer = TIMER;
+	e -> lifetime = MONSTER_LIFETIME;
 	e -> posX = (double)(PLR_X + RADIUS*cos(e->appAngle));
 	e -> posY = (double)(PLR_Y + RADIUS*sin(e->appAngle));
 	e -> progressX = e->speed*cos(e->appAngle);
@@ -69,7 +74,8 @@ void updateEnnemy(eList list){
 		if (e->timer < 0){
 			e->posX-=e->progressX;
 			e->posY-=e->progressY;
-		}
+			e->lifetime-=1;
+		}//afjout supression sui lifetime ==0
 		e=e->next;	
 	}
 }
