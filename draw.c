@@ -3,16 +3,18 @@
 
 Map* map;
 sList tabShoot;
+eList enlist;
 
 void drawGame(void){
 
 	drawImage(getBackground(), 0, 0);
-
 	drawShoot(tabShoot);
-
 	drawPlayer();
-	SDL_RenderPresent(getrenderer());// Affiche l'écran
-  SDL_Delay(1);// Délai pour laisser respirer le proc
+ 	drawEnnemy(enlist);
+	SDL_RenderPresent(getrenderer());
+ 	SDL_RenderClear(getrenderer());
+	//SDL_RenderPresent(getrenderer());--> savoir à quoi cette fonction sert
+  SDL_Delay(1);
 }
 
 SDL_Texture* loadImage(char* name) {
@@ -36,7 +38,6 @@ SDL_Texture* loadImage(char* name) {
 	}
  
 return texture;
- 
 }
  
 void drawImage(SDL_Texture* image, int x, int y){
@@ -58,18 +59,12 @@ void delay(unsigned int frameLimit){
 	// Gestion des 60 fps (images/stories/seconde)
     unsigned int ticks = SDL_GetTicks();
  
-    if (frameLimit < ticks)
-    {
+    if (frameLimit < ticks){
         return;
     }
- 
-    if (frameLimit > ticks + 16)
-    {
+    if (frameLimit > ticks + 16){
         SDL_Delay(16);
-    }
- 
-    else
-    {
+    }else{
         SDL_Delay(frameLimit - ticks);
     }
 }

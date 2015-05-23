@@ -10,7 +10,7 @@ int maxAbs (int x, int y){
 	return (maxAbs=(x<y)? x : y);
 }
 
-shoot* shootOrange(int dim){
+Shoot* shootOrange(int dim, int x, int y){
 	shoot* firstBlood=malloc(sizeof(shoot);
 	firstBllod->dimension=dim;
 	firstBllod->speed=8;//speed of shoot

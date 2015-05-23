@@ -75,6 +75,8 @@ void loadGame(void) {
 	initMaps();//On charge les données pour la map
 	initPlayerSprite();
 	initShootSprite();
+	initMaps();
+	initEnnemySprites();
 }
 
  
@@ -84,15 +86,14 @@ void cleanup()
 	cleanMaps();
 	cleanPlayer();
 	cleanShoot();
-    //On quitte SDL_Mixer 2 et on décharge la mémoire
-   Mix_CloseAudio();
+    
+   Mix_CloseAudio();//On quitte SDL_Mixer 2 et on décharge la mémoire
    Mix_Quit();
  
-		//On fait le ménage et on remet les pointeurs à NULL
-    SDL_DestroyRenderer(renderer);
-    renderer = NULL;
-    SDL_DestroyWindow(screen);
-    screen = NULL;
+   SDL_DestroyRenderer(renderer);//On fait le ménage et on remet les pointeurs à NULL
+   renderer = NULL;
+   SDL_DestroyWindow(screen);
+   screen = NULL;
  
     //On quitte SDL_TTF 2
     TTF_Quit();

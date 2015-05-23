@@ -72,9 +72,17 @@ void init(char *title)
  
  
 void loadGame(void) {
+<<<<<<< HEAD
 	initMaps();//On charge les données pour la map
 	initPlayerSprite();
-	initShootSprite()
+	initShootSprite();
+	initMaps();
+	initEnnemySprites();
+=======
+	//On charge les données pour la map
+	initMaps();
+	initEnnemySprites();
+>>>>>>> AlexDrAW
 }
 
  

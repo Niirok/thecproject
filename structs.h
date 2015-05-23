@@ -24,7 +24,30 @@ typedef struct Player {
 	int health, score, cdOra, cdYell, cdRed, cdNBlu, cdTur, cdGree, cdPur, cdPin, cdVio, viewX, viewY;
 
 	int active[9];
-}Player;
+}Player; 
+
+typedef enum Name{
+	octogone, rectangle, cross
+}Name;
+
+typedef struct Ennemy{
+	
+	Name name;
+	int dimension;
+	int lifetime;
+	double speed;
+	double posX;
+	double posY;
+	double progressX;
+	double progressY;
+	int timer;
+	double appAngle;
+	int appRadius;
+
+	struct Ennemy* next;
+}Ennemy;
+
+typedef Ennemy* eList;//liste chainée d'ennemis
 
 typedef struct Shoot{
 	int dimension;// dimension of the shoot	
