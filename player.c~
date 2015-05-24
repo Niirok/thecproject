@@ -2,7 +2,7 @@
 
 Player player;
 SDL_Texture* playerSprite;
-Shoot tabShoot[15];
+sList tabShoot;
 
 void initPlayerSprite(void){
 	playerSprite = loadImage("spaceship.png");
@@ -62,7 +62,8 @@ void updatePlayer(Input* input){
 	player.viewY = input->aimY;
 	dimSwitch(input);
 	if(input->orange==1 && player.cdOra == 0){
-		initializeNewShoot();
+		tabShoot = headAddShoot(tabShoot);
+		printf("nombre de missile +1");
 		player.cdOra = CDORA;
 	}
 //if(input->mute==1){/*mute le jeu*/}

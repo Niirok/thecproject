@@ -15,7 +15,6 @@ int main(int argc, char *argv[]){
 	init("Je suce des gnomes");// Initialisation de la SDL 
 	enlist = headAddEnneny(enlist);
 	enlist = headAddEnneny(enlist);
-	//enlist = deleteEn(getEnnemy (enlist,0), enlist);
 	
 		loadGame();// Chargement des ressources (graphismes, sons)
     initializePlayer();
@@ -30,7 +29,7 @@ int main(int argc, char *argv[]){
         gestionInputs(&input);//Gestion des inputs clavier
 				updatePlayer(&input);
 				updateShoot(tabShoot);
-      	updateEnnemy(enlist);
+      	updateEnnemy(enlist,tabShoot);
         drawGame(); //On dessine tout
 
         // Gestion des 60 fps (1000ms/60 = 16.6 -> 16)

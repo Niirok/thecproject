@@ -44,37 +44,12 @@ void updateShoot(sList list){
 		s->posY+=s->progressY;
 		//if (collide(getShoot(), &monster[i]) == 1){//traitement}
 		if(s->lifetime == 0){
-			printf("nombre de missile --");
+			//printf("nombre de missile --");
 			tabShoot = deleteTail(tabShoot);
 		}
 		s = s->next;
 	}
 }
-
-/* int collide(GameObject *player, GameObject *monster)
-{
-//On teste pour voir s'il n'y a pas collision, si c'est le cas, on renvoie 0
-if ((player->x >= monster->x + monster->w)
-|| (player->x + player->w <= monster->x)
-|| (player->y >= monster->y + monster->h)
-|| (player->y + player->h <= monster->y)
-)
-return 0;
- 
-//Sinon, il y a collision. Si le joueur est au-dessus du monstre (avec une marge
-//de 10 pixels pour éviter les frustrations dues au pixel perfect), on renvoie 2.
-//On devra alors tuer le monstre et on fera rebondir le joueur.
-else if (player->y + player->h <= monster->y + 10)
-{
-player->dirY = -JUMP_HEIGHT;
-return 2;
-}
- 
-//Sinon, on renvoie 1 et c'est le joueur qui meurt...
-else
-return 1;
-}
-*/ 
 
 void drawShoot(sList list){
 	Shoot* s = list;

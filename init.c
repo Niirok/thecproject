@@ -80,15 +80,14 @@ void loadGame(void) {
 }
 
  
-void cleanup()
-{
+void cleanup(){
 	 //Nettoie les sprites de la map
 	cleanMaps();
 	cleanPlayer();
 	cleanShoot();
-    
-   Mix_CloseAudio();//On quitte SDL_Mixer 2 et on décharge la mémoire
-   Mix_Quit();
+  cleanEnnemy();
+  Mix_CloseAudio();//On quitte SDL_Mixer 2 et on décharge la mémoire
+  Mix_Quit();
  
    SDL_DestroyRenderer(renderer);//On fait le ménage et on remet les pointeurs à NULL
    renderer = NULL;

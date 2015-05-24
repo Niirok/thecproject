@@ -43,6 +43,7 @@ typedef struct Ennemy{
 	int timer;
 	double appAngle;
 	int appRadius;
+	int id;
 
 	struct Ennemy* next;
 }Ennemy;

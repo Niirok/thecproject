@@ -63,7 +63,7 @@ void updatePlayer(Input* input){
 	dimSwitch(input);
 	if(input->orange==1 && player.cdOra == 0){
 		tabShoot = headAddShoot(tabShoot);
-		printf("nombre de missile +1");
+		//printf("nombre de missile +1");
 		player.cdOra = CDORA;
 	}
 //if(input->mute==1){/*mute le jeu*/}

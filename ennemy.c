@@ -1,9 +1,29 @@
 #include "prototypes.h"
 
 Ennemy ennemy;
-eList ennList; 
-SDL_Texture* ennemiSprite;
+eList ennList;
+sList shList; 
+SDL_Texture* ennemiSpritedim;
+SDL_Texture* ennemiSpritenotdim;
 Player player;
+Map map;
+
+int collide(Ennemy* e, sList list)
+{
+	Shoot* s = list;
+	int isHit = 0; 
+	while(s!=NULL){
+		//On teste pour voir s'il n'y a pas collision, si c'est le cas, on renvoie 0
+		if(e->dimension == s->dimension){
+			if(s->posX>= e->posX && s->posX<= e->posX +30 && s->posY >= e->posY && s->posY <= e->posY + 25){
+				printf("detection de collision");
+				return 1;
+			}
+		}
+		s=s->next;
+	}
+	return 0;
+}
 
 double randspeed(){
 	return (rand()/(double)RAND_MAX)*(1.15-0.85)+0.85;
@@ -17,8 +37,14 @@ int randDim(){
 	return (rand()%2)+1;
 }
 
+int getID(Ennemy* e){
+	return e->id;
+}
+
 Ennemy* createEnnemy(Name name){
+	static int idg =0;
 	Ennemy* e=malloc(sizeof(Ennemy));
+	e->id =idg;
 	e-> dimension = randDim();
 	e -> speed=(double)ENEMY_SPEED_BASE*randspeed();
 	e -> name=name;
@@ -29,7 +55,8 @@ Ennemy* createEnnemy(Name name){
 	e -> posX = (double)(PLR_X + RADIUS*cos(e->appAngle));
 	e -> posY = (double)(PLR_Y + RADIUS*sin(e->appAngle));
 	e -> progressX = e->speed*cos(e->appAngle);
-	e -> progressY =e->speed*sin(e->appAngle);	
+	e -> progressY =e->speed*sin(e->appAngle);
+	idg++;	
 	return e;
 }
 
@@ -61,22 +88,30 @@ void drawEnnemy(eList list){
 			dest.w = 25; 
 			dest.h = 30;
 
-			SDL_RenderCopyEx(getrenderer(), ennemiSprite, &src, &dest,0, 0, SDL_FLIP_NONE);
+			if (e->dimension == map.activemap){
+			SDL_RenderCopyEx(getrenderer(), ennemiSpritedim, &src, &dest,0, 0, SDL_FLIP_NONE);
+			}else{SDL_RenderCopyEx(getrenderer(), ennemiSpritenotdim, &src, &dest,0, 0, SDL_FLIP_NONE);}
 			e=e->next;
 	}	
 }
 
-void updateEnnemy(eList list){
+void updateEnnemy(eList list,sList shList){
 	Ennemy* e = list;
+	int i =0;
 	while	(e != NULL){
 		e->timer-=1;
-		printf("diminution du timer");
+		//printf("diminution du timer");
 		if (e->timer < 0){
 			e->posX-=e->progressX;
 			e->posY-=e->progressY;
 			e->lifetime-=1;
+			if(collide(e,shList)==1){
+				//list= deleteEn(getID(e),list);
+				
+			}	
 		}//afjout supression sui lifetime ==0
-		e=e->next;	
+		e=e->next;
+		i++;	
 	}
 }
 
@@ -92,38 +127,44 @@ eList getEnnemy(eList list, int indice){
     }
 }
 
-eList deleteEn(Ennemy* toDelete,eList list){
-	Ennemy* e = list;
-	Ennemy* last = list;
-	eList toReturn;
-	int done = 0;
-	while(e!=NULL && done == 0){
-		if(e==toDelete){
-			if(e==list){
-				list=toDelete->next;
-				deleteEnnemy(toDelete);
-				done=1;
-				return list;
-			}else{
-			if(e->next==NULL){
-				last->next==NULL;
-				deleteEnnemy(toDelete);
-				done=1;
-				return list;				
-			}else{
-				last->next = e->next;
-				deleteEnnemy(toDelete);
-				done=1;
-				return list;
+eList deleteEn(int idToDelete,eList list){
+	eList l1,l2;
+	if (list!=NULL){
+		if(list->id==idToDelete){
+			l2= list;
+			list =list->next;
+			//free(l2);
+		}else{
+			l1=list;
+			l2=list->next;
+			while (l2!=NULL){
+				if(l2->id!=idToDelete){
+					l1=l2;
+					l2=l2->next;					
+				}else{
+					l1->next=l2->next;		
+					//free(l2);
+				}
 			}
-		}
-		last=e;
-		e=e->next;
+		}	
 	}
-	}
+	return list;
 } 
 
 void initEnnemySprites(void){
-	ennemiSprite=loadImage("tuk.png");
+	ennemiSpritedim=loadImage("tuk.png");
+	ennemiSpritenotdim=loadImage("tuk2.png");
+}
+
+void cleanEnnemy(){
+	if(ennemiSpritedim!=NULL){
+		SDL_DestroyTexture(ennemiSpritedim);
+		ennemiSpritedim=NULL;	
+	}
+	if(ennemiSpritenotdim!=NULL){
+		SDL_DestroyTexture(ennemiSpritenotdim);
+		ennemiSpritenotdim=NULL;	
+	}
+
 }
 
