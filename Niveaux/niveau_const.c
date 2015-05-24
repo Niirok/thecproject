@@ -18,8 +18,8 @@ char* my_fgets(char* s,int size, FILE* stream){
 	return s;
 }
 
-int newNiveau(char* name){
-	FILE* file = fopen(name,"r");
+int newNiveau(char* fileName){
+	FILE* file = fopen(fileName,"r");
 	int vaguestotal;
 	int currentvague=1;
 	int i, j;
