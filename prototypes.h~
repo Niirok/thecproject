@@ -10,6 +10,7 @@ extern void cleanMaps(void);
 extern void cleanup(void);
 extern void cleanPlayer(void);
 extern void cleanShoot(void);
+extern void cleanEnnemy(void);
 extern void delay(unsigned int frameLimit);
 extern void dimSwitch(Input *input);
 extern Ennemy* createEnnemy(Name name);
@@ -38,9 +39,14 @@ extern SDL_Texture* getBackground(void);
 extern SDL_Texture* loadImage(char* name);
 extern void updateEnnemy(eList list,sList shlist);
 extern void updatePlayer(Input *input);
+<<<<<<< HEAD
 extern Shoot* getShoot(int i);
 extern int getShootNbr(void);
 extern void resetShoot(void);
 extern sList headAddShoot(sList list);
+=======
+char* theFgets(char* s,int size, FILE* stream)
+int newNiveau(char* fileName);
+>>>>>>> niveaux
  
 #endif
