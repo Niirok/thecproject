@@ -106,8 +106,7 @@ void updateEnnemy(eList list,sList shList){
 			e->posY-=e->progressY;
 			e->lifetime-=1;
 			if(collide(e,shList)==1){
-				//list= deleteEn(getID(e),list);
-				
+				list= deleteEn(getID(e),list);
 			}	
 		}//afjout supression sui lifetime ==0
 		e=e->next;
@@ -128,12 +127,13 @@ eList getEnnemy(eList list, int indice){
 }
 
 eList deleteEn(int idToDelete,eList list){
-	eList l1,l2;
+	eList l1=malloc(sizeof(Ennemy));
+	eList l2= malloc (sizeof(Ennemy));
 	if (list!=NULL){
 		if(list->id==idToDelete){
 			l2= list;
 			list =list->next;
-			//free(l2);
+			free(l2);
 		}else{
 			l1=list;
 			l2=list->next;
@@ -143,11 +143,11 @@ eList deleteEn(int idToDelete,eList list){
 					l2=l2->next;					
 				}else{
 					l1->next=l2->next;		
-					//free(l2);
+					free(l2);
 				}
 			}
 		}	
-	}
+	}//else{free(list);return NULL;}
 	return list;
 } 
 
