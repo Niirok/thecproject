@@ -27,5 +27,7 @@ extern SDL_Texture* getBackground();
 extern SDL_Texture* loadImage(char* name);
 extern void updateEnnemy(Ennemy* ennemy);
 extern void updatePlayer(Input *input);
+char* theFgets(char* s,int size, FILE* stream)
+int newNiveau(char* fileName);
  
 #endif
