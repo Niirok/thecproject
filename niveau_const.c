@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "structs.h"
 #define DIFFENNEMIS 2
 
 char* theFgets(char* s,int size, FILE* stream){
@@ -19,6 +20,9 @@ char* theFgets(char* s,int size, FILE* stream){
 }
 
 int newNiveau(char* fileName){
+	Name Octogone = 0;
+	Name Rectangle = rectangle;
+	Name Cross = cross;
 	FILE* file = fopen(fileName,"r");
 	int vaguestotal;
 	int currentvague=1;
@@ -26,14 +30,14 @@ int newNiveau(char* fileName){
 	int current;
 	int time;
 	char* contenu=malloc(sizeof(char)*30);
-	my_fgets(contenu, 30, file);
+	theFgets(contenu, 30, file);
 	vaguestotal = atoi(contenu);
 	while(currentvague <= vaguestotal){
 	for(i=0;i<DIFFENNEMIS+9;i++){
-		my_fgets(contenu, 30, file);
+		theFgets(contenu, 30, file);
 		current = atoi(contenu);
 		for(j=0;j<current;j++){
-			my_fgets(contenu, 30, file);
+			theFgets(contenu, 30, file);
 			time = atoi(contenu);
 			switch(i){
 				case 1:
