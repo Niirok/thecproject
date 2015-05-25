@@ -26,7 +26,7 @@ ennemy.o : ennemy.c prototypes.h
 	gcc -c ennemy.c
 
 niveau.o : niveau_const.c prototypes.h
-	gcc -c niveau.c
+	gcc -c  niveau.c
 clean:
 	rm -f -vf *.o core
 	

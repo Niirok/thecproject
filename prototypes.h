@@ -43,7 +43,7 @@ extern Shoot* getShoot(int i);
 extern int getShootNbr(void);
 extern void resetShoot(void);
 extern sList headAddShoot(sList list);
-char* theFgets(char* s,int size, FILE* stream)
-int newNiveau(char* fileName);
+extern char* theFgets(char* s,int size, FILE* stream);
+extern int newNiveau(char* fileName);
  
 #endif
