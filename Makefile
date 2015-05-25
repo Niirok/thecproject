@@ -1,5 +1,5 @@
-jeuC : draw.o init.o input.o map.o player.o main.o ennemy.o niveau.o shoot.o
-	gcc  draw.o init.o input.o map.o player.o main.o ennemy.o niveau.o shoot.o -o jeuC -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image -lm
+jeuC : draw.o init.o input.o map.o player.o main.o ennemy.o shoot.o
+	gcc  draw.o init.o input.o map.o player.o main.o ennemy.o shoot.o -o jeuC -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image -lm
 
 draw.o : draw.c prototypes.h
 	gcc -c  draw.c
@@ -25,8 +25,6 @@ shoot.o : shoot.c prototypes.h
 ennemy.o : ennemy.c prototypes.h
 	gcc -c ennemy.c
 
-niveau.o : niveau_const.c prototypes.h
-	gcc -c  niveau.c
 clean:
 	rm -f -vf *.o core
 	

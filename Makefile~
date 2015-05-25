@@ -25,8 +25,6 @@ shoot.o : shoot.c prototypes.h
 ennemy.o : ennemy.c prototypes.h
 	gcc -c ennemy.c
 
-niveau.o : niveau_const.c prototypes.h
-	gcc -c niveau.c
 clean:
 	rm -f -vf *.o core
 	
