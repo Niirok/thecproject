@@ -38,5 +38,7 @@ int main(int argc, char *argv[]){
         delay(frameLimit);
         frameLimit = SDL_GetTicks() + 16;
     }
+		free(enlist);
+		free(tabShoot);
     exit(0);
 }

@@ -10,7 +10,7 @@ extern void cleanMaps(void);
 extern void cleanup(void);
 extern void cleanPlayer(void);
 extern void cleanShoot(void);
-extern void cleanEnnemy(void);
+extern void cleanEnnemy(eList list);
 extern void delay(unsigned int frameLimit);
 extern void dimSwitch(Input *input);
 extern Ennemy* createEnnemy(Name name);
