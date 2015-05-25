@@ -22,7 +22,8 @@ int main(int argc, char *argv[]){
     initializePlayer();
 		initInputs(&input);
     atexit(cleanup);// Appelle la fonction cleanup à la fin du programme 
- 
+ 	Mix_PlayMusic(Mix_LoadMUS("intro.ogg"), -1);//lancement de la musique de fond 
+
     go = 1;
  
     // Boucle infinie, principale, du jeu 
