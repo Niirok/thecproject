@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 jeuC : draw.o init.o input.o map.o player.o main.o ennemy.o shoot.o
 	gcc  draw.o init.o input.o map.o player.o main.o ennemy.o shoot.o -o jeuC -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image -lm
-=======
-jeuC : draw.o init.o input.o map.o player.o main.o ennemy.o  shoot.o
-	gcc  draw.o init.o input.o map.o player.o main.o ennemy.o  shoot.o -o jeuC -lSDL2 -lSDL2main -lSDL2_ttf -lSDL2_mixer -lSDL2_image -lm
->>>>>>> 7206837786eaf1ffad8d70162f8a2b73e6c39a01
 
 draw.o : draw.c prototypes.h
 	gcc -c  draw.c
@@ -30,16 +25,9 @@ shoot.o : shoot.c prototypes.h
 ennemy.o : ennemy.c prototypes.h
 	gcc -c ennemy.c
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7206837786eaf1ffad8d70162f8a2b73e6c39a01
 clean:
-	rm -f -vf *.o core
+	rm -f *.o 
 	
 mrproper:	clean
 	rm -f *.o jeuC
-
-
-	
 

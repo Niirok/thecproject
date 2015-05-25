@@ -8,26 +8,35 @@ SDL_Texture* ennemiSpritenotdim;
 Player player;
 Map map;
 
-int collide(Ennemy* e, sList list)
-{
+
+int collideWithP(Ennemy* e){
+	if(e->posX>240 && e->posX<260 && e->posY >240 && e->posY<260)
+		return 1;
+}
+
+
+int collide(Ennemy* e, sList list){//On teste pour voir s'il n'y a pas collision, si c'est le cas, on renvoie 0
 	Shoot* s = list;
-	int isHit = 0; 
 	while(s!=NULL){
-		//On teste pour voir s'il n'y a pas collision, si c'est le cas, on renvoie 0
 		if(e->dimension == s->dimension){
-			if(s->posX>= e->posX && s->posX<= e->posX +30 && s->posY >= e->posY && s->posY <= e->posY + 25){
-				list = deleteTail(list);
-				printf("detection de collision");
+			if(s->posX>= e->posX &&s->posX<= e->posX +30 && s->posY >= e->posY && s->posY <= e->posY + 25){
+				printf("detection de collision avec un tir");
 				return 1;
 			}
 		}
-		s=s->next;
+	s=s->next;
 	}
+
+
 	return 0;
 }
 
 double randspeed(){
 	return (rand()/(double)RAND_MAX)*(1.15-0.85)+0.85;
+}
+
+int randTimer(){
+	return rand()%60*SECOND;
 }
 
 double randAngle(){
@@ -42,6 +51,15 @@ int getID(Ennemy* e){
 	return e->id;
 }
 
+int AreDead(eList list){
+	int toReturn = 0;
+	Ennemy* e = list;
+	while(e!=NULL){
+		if(e->isDead == 0)
+			toReturn =0;
+	}
+}
+
 Ennemy* createEnnemy(Name name){
 	static int idg =0;
 	Ennemy* e=malloc(sizeof(Ennemy));
@@ -52,7 +70,7 @@ Ennemy* createEnnemy(Name name){
 	e -> name=name;
 	e -> appRadius = RADIUS;
 	e -> appAngle = randAngle();
-	e -> timer = TIMER;
+	e -> timer = TIMER+idg*6+randTimer();
 	e -> lifetime = MONSTER_LIFETIME;
 	e -> posX = (double)(PLR_X + RADIUS*cos(e->appAngle));
 	e -> posY = (double)(PLR_Y + RADIUS*sin(e->appAngle));
@@ -85,8 +103,8 @@ void drawEnnemy(eList list){
 			src.h = MONSTER_HEIGTH;
 		
 			SDL_Rect dest;
-			dest.x = e->posX;
-			dest.y = e->posY;
+			dest.x = e->posX-12;
+			dest.y = e->posY-15;
 			dest.w = 25; 
 			dest.h = 30;
 
@@ -109,7 +127,11 @@ void updateEnnemy(eList list,sList shList){
 			e->lifetime-=1;
 			if(collide(e,shList)==1){
 				e->isDead =1;
-			}	
+			}
+			if(collideWithP(e)==1){
+				e->isDead =1;
+				player.health -=10;
+			}
 		if(e->isDead==1){
 			e->posX = 1000;
 			e->posY = 1000;
@@ -171,6 +193,5 @@ void cleanEnnemy(){
 		SDL_DestroyTexture(ennemiSpritenotdim);
 		ennemiSpritenotdim=NULL;	
 	}
-
 }
 

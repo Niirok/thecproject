@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
 	int i;
 	srand(time(NULL));	
 	init("Jeu C");// Initialisation de la SDL
-	for(i=0; i<ENEMY_MAX ;i++){ 
+	while(i=0; i<ENEMY_MAX ;i++){ 
 		enlist = headAddEnneny(enlist);
 	}
 	

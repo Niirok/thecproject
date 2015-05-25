@@ -33,11 +33,11 @@
 #define ENEMY_SPEED_BASE 0.5
 
 //Nombre max de monstres à l'écran
-#define ENEMY_MAX 20
+#define ENEMY_MAX 50
  
 //Dimensions du monstre
 #define MONSTER_WIDTH 400
 #define MONSTER_HEIGTH 479
-#define SECOND 150
+#define SECOND 60
  
 #endif

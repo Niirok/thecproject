@@ -26,7 +26,7 @@ ennemy.o : ennemy.c prototypes.h
 	gcc -c ennemy.c
 
 clean:
-	rm -f -vf *.o core
+	rm -f *.o 
 	
 mrproper:	clean
 	rm -f *.o jeuC

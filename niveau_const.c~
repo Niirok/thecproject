@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <sring.h>
 #include "prototypes.h"
 #define DIFFENNEMIS 2
 
