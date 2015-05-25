@@ -31,6 +31,3 @@ clean:
 mrproper:	clean
 	rm -f *.o jeuC
 
-
-	
-

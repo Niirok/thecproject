@@ -16,6 +16,7 @@ int collide(Ennemy* e, sList list)
 		//On teste pour voir s'il n'y a pas collision, si c'est le cas, on renvoie 0
 		if(e->dimension == s->dimension){
 			if(s->posX>= e->posX && s->posX<= e->posX +30 && s->posY >= e->posY && s->posY <= e->posY + 25){
+				list = deleteTail(list);
 				printf("detection de collision");
 				return 1;
 			}
